@@ -10,8 +10,8 @@ import Cocoa
 import NotificationCenter
 
 class TodayViewController: NSViewController, NCWidgetProviding {
+    @IBOutlet var segmentControl: NSSegmentedControl!
     @IBOutlet var tableView: NSTableView!
-    @IBOutlet var searchField: NSSearchField!
 
     private var clipboardListener = ClipboardListener.shared {
         didSet {
@@ -45,8 +45,13 @@ class TodayViewController: NSViewController, NCWidgetProviding {
 
 extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
     override func viewDidLoad() {
+        segmentControl.segmentDistribution = .fillEqually
+        let width = self.view.frame.size.width / 2 - 20
+        segmentControl.setWidth(width, forSegment: 0)
+        segmentControl.setWidth(width, forSegment: 1)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 50
         tableView.reloadData()
     }
 

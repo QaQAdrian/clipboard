@@ -17,7 +17,7 @@ extension Date {
     }
     
     func elapsedEssentially() -> (n: Int, unit: NSCalendar.Unit)? {
-        let seconds = self.distance(to: Date())
+        let seconds = self.timeIntervalSince1970.distance(to: Date().timeIntervalSince1970)
         if seconds < 0 {
             return (-1, .second)
         }
