@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  clipboard
+
+  Created by wyy on 2019/12/8.
+  Copyright © 2019 yahaha. All rights reserved.
+*/
+
+"hour" = "hour";
+"minute" = "minute";
+"second" = "second";
+"day" = "day";
+"ago" = "ago";
