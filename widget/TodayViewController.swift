@@ -51,7 +51,7 @@ extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
         segmentControl.setWidth(width, forSegment: 1)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 50
+        tableView.rowHeight = 40
         tableView.reloadData()
     }
 
@@ -115,8 +115,15 @@ extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
         if cellView == nil {
             cellView = NSTextField()
             cellView?.isEditable = false
+            cellView?.isBezeled = false
+            cellView?.drawsBackground = false
+            cellView?.isSelectable = false
+            cellView?.usesSingleLineMode = false
             cellView?.backgroundColor = NSColor(red: 0, green: 0, blue: 0, alpha: 0)
             cellView?.identifier = columnView.identifier
+            cellView?.maximumNumberOfLines = 2
+            cellView?.font = NSFont.systemFont(ofSize: 14)
+            cellView?.textColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         }
         cellView?.stringValue = content
         return cellView

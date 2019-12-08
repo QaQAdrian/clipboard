@@ -10,7 +10,9 @@
 		1CDD7CA7EE876D53DC053C86 /* ClipboardOSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD7375EE2396187A6AE33D /* ClipboardOSX.swift */; };
 		75167B562399FBD1004EF991 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75167B552399FBD1004EF991 /* DateUtils.swift */; };
 		75167B5E239A00F8004EF991 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75167B5D239A00F8004EF991 /* main.swift */; };
+		75167B9E239A5CFB004EF991 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75167B9D239A5CFB004EF991 /* SegmentControl.swift */; };
 		75200CBF2398FBCB0092C89D /* WidgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75200CBE2398FBCB0092C89D /* WidgetButton.swift */; };
+		757450D1239CE7F6003EF2E0 /* FadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757450D0239CE7F6003EF2E0 /* FadeView.swift */; };
 		757894502394EF3C00B26DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578944F2394EF3C00B26DDF /* AppDelegate.swift */; };
 		757894522394EF3C00B26DDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894512394EF3C00B26DDF /* ViewController.swift */; };
 		757894542394EF4000B26DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 757894532394EF4000B26DDF /* Assets.xcassets */; };
@@ -82,7 +84,9 @@
 		75167B552399FBD1004EF991 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		75167B5B239A00F8004EF991 /* cmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cmd; sourceTree = BUILT_PRODUCTS_DIR; };
 		75167B5D239A00F8004EF991 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		75167B9D239A5CFB004EF991 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		75200CBE2398FBCB0092C89D /* WidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButton.swift; sourceTree = "<group>"; };
+		757450D0239CE7F6003EF2E0 /* FadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeView.swift; sourceTree = "<group>"; };
 		7578944C2394EF3C00B26DDF /* clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7578944F2394EF3C00B26DDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		757894512394EF3C00B26DDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				75200CBE2398FBCB0092C89D /* WidgetButton.swift */,
+				75167B9D239A5CFB004EF991 /* SegmentControl.swift */,
+				757450D0239CE7F6003EF2E0 /* FadeView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -483,9 +489,11 @@
 			files = (
 				75C6DEF12398B17D009B1F1E /* ClipboardListener.swift in Sources */,
 				75C6DEF22398B17D009B1F1E /* Clipboard.swift in Sources */,
+				757450D1239CE7F6003EF2E0 /* FadeView.swift in Sources */,
 				75C6DEF32398B17D009B1F1E /* ClipboardOSX.swift in Sources */,
 				75200CBF2398FBCB0092C89D /* WidgetButton.swift in Sources */,
 				75C6DEE22398B175009B1F1E /* TodayViewController.swift in Sources */,
+				75167B9E239A5CFB004EF991 /* SegmentControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
