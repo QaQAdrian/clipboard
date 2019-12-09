@@ -9,30 +9,71 @@
 import AppKit
 import Foundation
 
-class ListTextItem: NSTableCellView {
+class ClickTextField: NSTextField {
+}
+
+class ListTextItem: NSView {
+    // MARK: property
+
     @IBOutlet var elapse: NSTextField!
-    @IBOutlet var text: NSTextField!
+    @IBOutlet var text: NSTextField! {
+        didSet {
+            self.text.lineBreakMode = .byCharWrapping
+        }
+    }
     @IBOutlet var image: NSImageView!
+
+    private var checkMarkView: FadeView?
+
+    var itemId: String?
+    var item: ClipboardOSX?
+    var click: ((ClipboardOSX?, ListTextItem) -> Void)?
+    var preview: ((ClipboardOSX?) -> Void)?
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        wantsLayer = true
     }
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        wantsLayer = true
     }
 
-    @IBAction func previewClick(_ sender: Any) {
-        print("click")
+    private var previewWindow: PreviewWindowController?
+
+    // MARK: event
+
+    @IBAction func preview(_ sender: NSButton) {
+        if let hook = preview {
+            hook(item)
+        }
+    }
+
+    override func mouseDown(with event: NSEvent) {
+    }
+
+    override func mouseUp(with event: NSEvent) {
+        if let hook = click {
+            hook(item, self)
+        }
+    }
+
+    func showCheckMark() {
+        checkMarkView = FadeView.createFromNib("FadeView")
+        if let exists = checkMarkView {
+            addSubview(exists)
+            checkMarkView?.start()
+        }
     }
 
     override func awakeFromNib() {
-        super.awakeFromNib()
-        print("awake from nib")
+        
     }
+    // MARK: setter
 
     func setImage(image: NSImage?) {
-        print("set image \(self.image)")
-        self.image?.image = image
+        self.image.image = image
     }
 
     func setText(content: String?) {

@@ -9,7 +9,10 @@
 import Foundation
 import AppKit
 
+@IBDesignable
 class FadeView: NSView, CAAnimationDelegate {
+    @IBOutlet var image: NSImageView!
+
     override func draw(_ dirtyRect: NSRect) {
         NSColor.clear.setFill()
         dirtyRect.fill()
@@ -20,6 +23,7 @@ class FadeView: NSView, CAAnimationDelegate {
         _ = initLayer
     }
 
+    // TODO: init image
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         _ = initLayer
@@ -32,7 +36,7 @@ class FadeView: NSView, CAAnimationDelegate {
             self.layer = CALayer()
         }
         layer?.frame = frame
-        layer?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2387093322)
+        layer?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
     }()
 
     func resetFrame() {
@@ -54,20 +58,7 @@ class FadeView: NSView, CAAnimationDelegate {
         layer?.add(animation, forKey: "animateFadeIO")
     }
     
-//    func transition() {
-//        self.resetFrame()
-////        self.alphaValue = 1
-//        let transition = CATransition()
-//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-//        transition.duration = 3
-//        transition.delegate = self
-////        transition.fillMode = .forwards
-//        transition.isRemovedOnCompletion = false
-//        transition.type = .fade //推送类型
-//        transition.subtype = .fromBottom
-//        self.layer?.add(transition, forKey: "transitionFadeIO")
-//    }
-    
+    // 防止事件 （accepet responder）
     override func keyUp(with event: NSEvent) {
         
     }
@@ -80,6 +71,7 @@ class FadeView: NSView, CAAnimationDelegate {
     override func mouseDown(with event: NSEvent) {
         
     }
+
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false, block: {_ in
             print("remove \(Date())")

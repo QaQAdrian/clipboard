@@ -19,4 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+    
+    func application(_ application: NSApplication, open urls: [URL]) {
+        print("receive \(urls)")
+    }
 }

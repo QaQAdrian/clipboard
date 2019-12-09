@@ -39,20 +39,14 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     func widgetPerformUpdate(completionHandler: @escaping (NCUpdateResult) -> Void) {
         completionHandler(.newData)
     }
-    
-//    override func viewDidAppear() {
-//        print("did appear")
-//        print(self.view.frame)
-//        print(self.view.bounds)
-//        print(self.view.superview?.frame)
-//        print("did appear")
-//        self.view.sizetoFit
-//    }
+
+    func widgetMarginInsets(forProposedMarginInsets defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets {
+        NSEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
 }
 
 extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
     override func viewDidLoad() {
-        self.view.frame = NSRect(x: 0, y: 0, width: 312, height: 330)
         segmentControl.segmentDistribution = .fillEqually
         let width = view.frame.size.width / 2 - 20
         segmentControl.setWidth(width, forSegment: 0)
@@ -70,13 +64,32 @@ extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
         false
     }
 
+    // 点击cell
+    private func clickHook(_ item: ClipboardOSX?, _ view: ListTextItem) {
+        if let selected = item, let str = selected.content {
+            clipboardListener.copy(str)
+            view.showCheckMark()
+        }
+    }
+
+    // 点击预览
+    private func preview(_ item: ClipboardOSX?) {
+        NSWorkspace.shared.launchApplication(withBundleIdentifier: "com.blabla.clipboard", options: [NSWorkspace.LaunchOptions.async], additionalEventParamDescriptor: NSAppleEventDescriptor(string: "Hello"), launchIdentifier: nil)
+//        if let url = URL(string: "clipboard://abc") {
+//            self.extensionContext?.open(url, completionHandler: {print("open main app \($0)")})
+//        }
+    }
+
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard tableColumn != nil else {
             return nil
         }
-        print("reload")
         let itemView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListTextItem"), owner: tableColumn) as! ListTextItem
         let item = items[row]
+        itemView.click = clickHook
+        itemView.preview = preview
+        itemView.itemId = item.id
+        itemView.item = item
         itemView.setImage(image: NSImage(named: "TypeIcon"))
         itemView.setText(content: item.content)
         itemView.setElapse(createDate: item.createDate)
@@ -85,30 +98,5 @@ extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
         items.count
-    }
-
-    // MARK: button event
-
-    // TODO: thread safe
-    @objc private func removeItem(btn: RemoveBtn) {
-        items.removeAll(where: {
-            if let itemId = btn.itemId {
-                return $0.id == itemId
-            }
-            return false
-        })
-        tableView.reloadData()
-    }
-
-    @objc private func pasteItem(btn: PasteBtn) {
-        let item = items.first(where: {
-            if let itemId = btn.itemId {
-                return $0.id == itemId
-            }
-            return false
-        })
-        if let found = item, let str = found.content {
-            clipboardListener.copy(str)
-        }
     }
 }
