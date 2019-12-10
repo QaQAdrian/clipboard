@@ -11,33 +11,32 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     let clipboard = ClipboardListener.shared
+    var iStatucBar: StatusBar?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         clipboard.startListening()
+        iStatucBar = StatusBar()
+        print("status bar \(iStatucBar != nil)")
         NSApp.setActivationPolicy(.regular)
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-        print("will terminate")
+    static func openMainWindow() {
+        let app = NSApplication.shared
+        app.activate(ignoringOtherApps: true)
+        for window in app.windows {
+            if window.windowController is MainWindowController {
+                window.makeKeyAndOrderFront(self)
+                return
+            }
+        }
     }
     
-    func applicationDidResignActive(_ notification: Notification) {
-        print("resign active")
-    }
-    
-    func application(_ application: NSApplication, open urls: [URL]) {
-        print("receive \(urls)")
+    static func quit() {
+        NSApplication.shared.terminate(nil)
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        sender.activate(ignoringOtherApps: true)
-        if !flag {
-            print(sender.windows.count)
-            for window: AnyObject in sender.windows {
-                window.makeKeyAndOrderFront(self)
-            }
-        }
+        AppDelegate.openMainWindow()
         return true
     }
 }

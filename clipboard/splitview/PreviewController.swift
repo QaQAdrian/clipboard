@@ -20,7 +20,18 @@ class PreviewController: NSViewController {
         item?.copy()
     }
 
-    @IBOutlet var openBtn: NSButton!
+    @IBOutlet var openBtn: NSButton! {
+        didSet {
+            checkBtnStatus()
+        }
+    }
+
+    @IBOutlet var copyBtn: NSButton! {
+        didSet {
+            checkBtnStatus()
+        }
+    }
+
     @IBAction func open(_ sender: Any) {
         if let url = item?.url {
             NSWorkspace.shared.open(url)
@@ -43,7 +54,23 @@ class PreviewController: NSViewController {
             textView.isHidden = needImage
         }
     }
+    
+    func checkBtnStatus() {
+        if self.item == nil {
+            openBtn?.isHidden = true
+            copyBtn?.isHidden = true
+            return
+        }
+        if let existItem = self.item {
+            copyBtn?.isHidden = false
+            openBtn?.isHidden = existItem.showType == .STR
+        }
+        //TODO: 暂时不要拷贝
+        copyBtn?.isHidden = true
+    }
+    
     func refresh() {
+        checkBtnStatus()
         var need = true
         switch item?.type {
         case .STR: need = false
@@ -55,7 +82,7 @@ class PreviewController: NSViewController {
         }
         needImage = need
         if needImage {
-            imageView.image = item?.getNSImage()
+            imageView.image = item?.showImage() ?? NSImage(named: "empty")
         } else {
             textView.stringValue = item?.showContent() ?? ""
         }

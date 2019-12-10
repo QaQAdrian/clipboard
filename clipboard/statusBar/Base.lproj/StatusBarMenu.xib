@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <menu id="EnG-LA-AjY" customClass="Menu" customModule="clipboard" customModuleProvider="target">
+            <items>
+                <menuItem title="Start" hidden="YES" id="ika-a8-bgr">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="start:" target="EnG-LA-AjY" id="jaT-cc-x12"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Stop" id="anw-He-5Dl">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="stop:" target="EnG-LA-AjY" id="3Xi-hc-P5q"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Avp-IR-DxG"/>
+                <menuItem title="Open App" id="yXb-nn-CYT">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openWindow:" target="EnG-LA-AjY" id="FhB-8S-Igf"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Setting" id="oKD-MX-Hom">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openSetting:" target="EnG-LA-AjY" id="qJZ-yT-V7k"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="hQi-y6-5yP"/>
+                <menuItem title="Mark" hidden="YES" id="FE7-yC-dYL">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="giveMark:" target="EnG-LA-AjY" id="Twt-sg-WaI"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Feedback" hidden="YES" id="nKo-BQ-7an">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="feedback:" target="EnG-LA-AjY" id="e9K-vY-QYC"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit" keyEquivalent="q" id="P4H-Er-iEH">
+                    <connections>
+                        <action selector="quit:" target="EnG-LA-AjY" id="QO5-xu-8nh"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="startBtn" destination="ika-a8-bgr" id="cAF-B4-zX6"/>
+                <outlet property="stopBtn" destination="anw-He-5Dl" id="iVa-i0-zoF"/>
+            </connections>
+            <point key="canvasLocation" x="78.5" y="-21"/>
+        </menu>
+    </objects>
+</document>

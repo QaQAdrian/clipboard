@@ -1,0 +1,21 @@
+
+/* Class = "NSMenuItem"; title = "Mark"; ObjectID = "FE7-yC-dYL"; */
+"FE7-yC-dYL.title" = "评分";
+
+/* Class = "NSMenuItem"; title = "Quit"; ObjectID = "P4H-Er-iEH"; */
+"P4H-Er-iEH.title" = "退出";
+
+/* Class = "NSMenuItem"; title = "Start"; ObjectID = "anw-He-5Dl"; */
+"anw-He-5Dl.title" = "停止记录";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "ika-a8-bgr"; */
+"ika-a8-bgr.title" = "开始记录";
+
+/* Class = "NSMenuItem"; title = "Feedback"; ObjectID = "nKo-BQ-7an"; */
+"nKo-BQ-7an.title" = "意见反馈";
+
+/* Class = "NSMenuItem"; title = "Setting"; ObjectID = "oKD-MX-Hom"; */
+"oKD-MX-Hom.title" = "设置";
+
+/* Class = "NSMenuItem"; title = "Open App"; ObjectID = "yXb-nn-CYT"; */
+"yXb-nn-CYT.title" = "打开App";

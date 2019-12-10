@@ -12,6 +12,28 @@ import Foundation
 class MainListViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
     private var items: ClipboardItems = []
+    @IBOutlet var pinBtn: NSButton! {
+        didSet {
+            checkPinBtn()
+        }
+    }
+    
+    private var pinned = true {
+        didSet {
+            checkPinBtn()
+        }
+    }
+    
+    func checkPinBtn() {
+        if pinBtn != nil {
+            pinBtn.image = self.pinned ? NSImage(named: "pin") : NSImage(named: "unpin")
+            self.view.window?.level = self.pinned ? .floating: .normal;
+        }
+    }
+    
+    @IBAction func pin(_ sender: Any) {
+        self.pinned = !self.pinned
+    }
 
     @IBAction func expandRightView(_ sender: NSButton) {
         if let existParent = splitViewController() {
@@ -19,6 +41,10 @@ class MainListViewController: NSViewController {
         }
     }
 
+    @IBAction func clearUp(_ sender: Any) {
+        self.items.removeAll()
+        tableView.reloadData()
+    }
     func splitViewController() -> SplitViewController? {
         if let existParent = self.parent, existParent is SplitViewController {
             return existParent as? SplitViewController
@@ -31,6 +57,7 @@ class MainListViewController: NSViewController {
 
 extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
     override func viewDidLoad() {
+        checkPinBtn()
         let constraints = [
             self.view.widthAnchor.constraint(equalToConstant: 320),
         ]

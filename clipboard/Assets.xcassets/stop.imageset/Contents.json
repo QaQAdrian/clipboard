@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "checkmark3.png",
+      "filename" : "stop.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "checkmark3-1.png",
+      "filename" : "stop-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "checkmark3-2.png",
+      "filename" : "stop-2.png",
       "scale" : "3x"
     }
   ],

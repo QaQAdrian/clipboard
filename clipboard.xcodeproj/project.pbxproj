@@ -30,11 +30,13 @@
 		7578946E2394EF4000B26DDF /* clipboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578946D2394EF4000B26DDF /* clipboardUITests.swift */; };
 		7578947D2394EF7F00B26DDF /* ClipboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578947C2394EF7F00B26DDF /* ClipboardListener.swift */; };
 		757894812394F63B00B26DDF /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894802394F63B00B26DDF /* Clipboard.swift */; };
+		758CB487239F45F00067A970 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758CB486239F45F00067A970 /* StatusBar.swift */; };
 		759F9F91239D44C400357E2D /* FadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757450D0239CE7F6003EF2E0 /* FadeView.swift */; };
 		759F9FAA239DFBB300357E2D /* FadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759F9FA9239DFBB300357E2D /* FadeView.xib */; };
 		759F9FAB239DFBB300357E2D /* FadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759F9FA9239DFBB300357E2D /* FadeView.xib */; };
 		759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FAC239E104300357E2D /* NSViewUtils.swift */; };
 		759F9FAE239E104300357E2D /* NSViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FAC239E104300357E2D /* NSViewUtils.swift */; };
+		75B45F77239F66080045F635 /* StatusBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75B45F79239F66080045F635 /* StatusBarMenu.xib */; };
 		75C6DEDF2398B175009B1F1E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757894882397514200B26DDF /* NotificationCenter.framework */; };
 		75C6DEE22398B175009B1F1E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6DEE12398B175009B1F1E /* TodayViewController.swift */; };
 		75C6DEE52398B175009B1F1E /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C6DEE32398B175009B1F1E /* TodayViewController.xib */; };
@@ -132,8 +134,12 @@
 		7578947C2394EF7F00B26DDF /* ClipboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardListener.swift; sourceTree = "<group>"; };
 		757894802394F63B00B26DDF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		757894882397514200B26DDF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		758CB486239F45F00067A970 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		759F9FA9239DFBB300357E2D /* FadeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FadeView.xib; sourceTree = "<group>"; };
 		759F9FAC239E104300357E2D /* NSViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewUtils.swift; sourceTree = "<group>"; };
+		75B45F78239F66080045F635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatusBarMenu.xib; sourceTree = "<group>"; };
+		75B45F7B239F660D0045F635 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StatusBarMenu.strings; sourceTree = "<group>"; };
+		75B45F7D239F66160045F635 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/StatusBarMenu.strings"; sourceTree = "<group>"; };
 		75C6DEDE2398B175009B1F1E /* widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C6DEE12398B175009B1F1E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		75C6DEE42398B175009B1F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 		7578944E2394EF3C00B26DDF /* clipboard */ = {
 			isa = PBXGroup;
 			children = (
+				758CB485239F45D30067A970 /* statusBar */,
 				756E2F97239E403700534C9A /* splitview */,
 				7578944F2394EF3C00B26DDF /* AppDelegate.swift */,
 				757894532394EF4000B26DDF /* Assets.xcassets */,
@@ -313,6 +320,15 @@
 				757894882397514200B26DDF /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		758CB485239F45D30067A970 /* statusBar */ = {
+			isa = PBXGroup;
+			children = (
+				758CB486239F45F00067A970 /* StatusBar.swift */,
+				75B45F79239F66080045F635 /* StatusBarMenu.xib */,
+			);
+			path = statusBar;
 			sourceTree = "<group>";
 		};
 		759F9FA1239DED5000357E2D /* controllers */ = {
@@ -486,6 +502,7 @@
 			files = (
 				757894542394EF4000B26DDF /* Assets.xcassets in Resources */,
 				757450E0239CEFDE003EF2E0 /* Localizable.strings in Resources */,
+				75B45F77239F66080045F635 /* StatusBarMenu.xib in Resources */,
 				759F9FAA239DFBB300357E2D /* FadeView.xib in Resources */,
 				757894572394EF4000B26DDF /* Main.storyboard in Resources */,
 				756E2F96239E3FE400534C9A /* ListTextItemView.xib in Resources */,
@@ -532,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				758CB487239F45F00067A970 /* StatusBar.swift in Sources */,
 				75FC5626239E4D4300635EE5 /* GrideTable.swift in Sources */,
 				759F9F91239D44C400357E2D /* FadeView.swift in Sources */,
 				759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */,
@@ -625,6 +643,16 @@
 				75FC5632239E867F00635EE5 /* en */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		75B45F79239F66080045F635 /* StatusBarMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75B45F78239F66080045F635 /* Base */,
+				75B45F7B239F660D0045F635 /* en */,
+				75B45F7D239F66160045F635 /* zh-Hans */,
+			);
+			name = StatusBarMenu.xib;
 			sourceTree = "<group>";
 		};
 		75C6DEE32398B175009B1F1E /* TodayViewController.xib */ = {

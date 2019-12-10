@@ -24,6 +24,7 @@ class ClipboardListener {
         PasteType.string
     ]
 
+    private var stopped = false
     private let pasteboard = NSPasteboard.general
     private let timerInterval = 1.0
 
@@ -69,14 +70,23 @@ class ClipboardListener {
         }
     }
 
+    func start() {
+        self.stopped = false
+    }
+    func stop() {
+        self.stopped = true
+    }
+
     // 检查新拷贝项并保存
-    // TODO: 需要自旋锁
     private func checkForChangesInPasteboard() {
         // 是否有新拷贝项
         guard pasteboard.changeCount != changeCount else {
             return
         }
         changeCount = pasteboard.changeCount
+        if self.stopped {
+            return
+        }
         // 获取拷贝类型和内容 （可能并不是线程安全的）
         let availableType = pasteboard.availableType(from: self.availableType)
         guard availableType != nil else {
@@ -85,7 +95,7 @@ class ClipboardListener {
         let type = availableType!;
         let content = pasteboard.string(forType: .string)
         // 不需要获取data
-        let data = type == PasteType.fileURL ? nil : pasteboard.data(forType: type)
+        let data = pasteboard.data(forType: type)
         if let instance = parse(content: content, data: data, type: type) {
             for hook in hooks {
                 hook(instance)
@@ -97,8 +107,9 @@ class ClipboardListener {
         var clipboard: ClipboardOSX?
         switch type {
         case PasteType.fileURL:
-            clipboard = content.map {
-                ClipboardOSX(fileUrl: URL(fileURLWithPath: $0))
+            let url = data.flatMap({ d in String(data: d, encoding: .utf8) })
+            if let exists = url, let existURL = URL(string:exists) {
+                clipboard = ClipboardOSX(fileUrl: existURL)
             }
             break
         case PasteType.tiff:
