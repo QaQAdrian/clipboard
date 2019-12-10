@@ -11,38 +11,39 @@ import Foundation
 
 class MainListViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
-//    private var textItem: ListTextItem?
+    private var items: ClipboardItems = []
 
-    private var items: [ClipboardOSX]?
-
-    private var clipboardListener = ClipboardListener.shared {
-        didSet {
-            clipboardListener.onNewCopy({
-                self.items?.append($0)
-                self.tableView.reloadData()
-            })
+    @IBAction func expandRightView(_ sender: NSButton) {
+        if let existParent = splitViewController() {
+            existParent.expand()
         }
     }
+
+    func splitViewController() -> SplitViewController? {
+        if let existParent = self.parent, existParent is SplitViewController {
+            return existParent as? SplitViewController
+        }
+        return nil
+    }
+
+    private let clipboard = ClipboardListener.shared;
 }
 
 extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
     override func viewDidLoad() {
         let constraints = [
-            self.view.widthAnchor.constraint(greaterThanOrEqualToConstant: 320),
+            self.view.widthAnchor.constraint(equalToConstant: 320),
         ]
         NSLayoutConstraint.activate(constraints)
-
-//        textItem = ListTextItem.createFromNib("ListTextItemView")
         tableView.delegate = self
         tableView.dataSource = self
-        self.items = [
-            ClipboardOSX(content: "yahahha1"),
-            ClipboardOSX(content: "yahahha2"),
-            ClipboardOSX(content: "yahahha3yahahha3yahahha3yahahha3yahahha3yahahha3yahahha3yahahha3"),
-            ClipboardOSX(content: "yahahha4"),
-            ClipboardOSX(content: "yahahha5"),
-            ClipboardOSX(content: "yahahha6yahahha6yahahha6yahahha6yahahha6yahahha6yahahha6"),
-        ]
+        clipboard.onNewCopy {
+            if self.items.appendExcludeSame($0) {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
         tableView.reloadData()
     }
 
@@ -61,17 +62,26 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     // 点击cell
     private func clickHook(_ item: ClipboardOSX?, _ view: ListTextItem) {
-        if let selected = item, let str = selected.content {
-            clipboardListener.copy(str)
+        if let selected = item {
+            selected.copy()
             view.showCheckMark()
         }
     }
 
+    func getPreviewController() -> PreviewController? {
+        if let controller = splitViewController() {
+            if let preview = controller.children.last, preview is PreviewController {
+                return preview as? PreviewController
+            }
+        }
+        return nil
+    }
+
     // 点击预览
     private func preview(_ item: ClipboardOSX?) {
-        print("click preview")
+        getPreviewController()?.item = item
     }
-    
+
     private func loadListTextItemView() -> ListTextItem? {
         var itemView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListTextItem"), owner: self) as? ListTextItem
         if itemView == nil {
@@ -83,21 +93,22 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard tableColumn != nil,
-            let item = items?[row],
+            items.count > row,
             let view = loadListTextItemView() else {
             return nil
         }
+        let item = items[row]
         view.click = clickHook
         view.preview = preview
         view.itemId = item.id
         view.item = item
-        view.setImage(image: NSImage(named: "TypeIcon"))
+        view.setImage(image: item.showImage())
         view.setText(content: item.content)
         view.setElapse(createDate: item.createDate)
         return view
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return items?.count ?? 0
+        return items.count 
     }
 }

@@ -40,8 +40,6 @@ class ListTextItem: NSView {
         wantsLayer = true
     }
 
-    private var previewWindow: PreviewWindowController?
-
     // MARK: event
 
     @IBAction func preview(_ sender: NSButton) {
@@ -99,7 +97,7 @@ class ListTextItem: NSView {
                     elapse.stringValue = date.toLocalString()
                     return
                 }
-                elapse?.stringValue = "\(i) \(unitStr)\(i == 1 ? "" : "s") \("ago".localized)"
+                elapse?.stringValue = "\(i) \(unitStr)\(i == 1 ? "" : "s".localized)\("ago".localized)"
                 return
             }
         }

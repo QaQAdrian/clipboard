@@ -11,6 +11,15 @@ import Foundation
 class Clipboard {
     var id: String
     var type: CType
+    var showType: ShowType {
+        get {
+            switch self.type {
+            case .STR,.HTML: return .STR
+            case .IMAGE: return .IMAGE
+            case .FILE,.URL: return .FILE
+            }
+        }
+    }
     var createDate: Date
     var content: String?
     var contentWithFormat: String?
@@ -45,7 +54,23 @@ class Clipboard {
         self.type = type
         self.createDate = Date()
     }
+    
+    
+    
+    func isSameContent(_ other: Clipboard) -> Bool {
+        if self.showType != other.showType {
+            return false
+        }
+        if self.content != nil && self.content == other.content {
+            return true
+        }
+        if self.url != nil && self.url == other.url {
+            return true
+        }
+        return false
+    }
 }
+
 
 extension Clipboard {
     enum CType {
@@ -54,5 +79,11 @@ extension Clipboard {
         case FILE
         case HTML
         case URL
+    }
+    
+    enum ShowType {
+        case STR
+        case IMAGE
+        case FILE
     }
 }

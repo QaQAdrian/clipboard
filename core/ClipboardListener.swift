@@ -47,9 +47,26 @@ class ClipboardListener {
         })
     }
 
-    func copy(_ string: String) {
-        pasteboard.declareTypes([PasteType.string], owner: nil)
-        pasteboard.setString(string, forType: PasteType.string)
+    func copy(_ string: String?) {
+        if let content = string {
+            pasteboard.clearContents()
+            pasteboard.declareTypes([PasteType.string], owner: nil)
+            pasteboard.setString(content, forType: PasteType.string)
+        }
+    }
+    
+    func copyFile(_ url: URL?) {
+        if let exist = url {
+            pasteboard.clearContents()
+            pasteboard.setData(exist.absoluteString.data(using: .utf8), forType: .fileURL)
+        }
+    }
+
+    func copyImage(_ image: NSImage?) {
+        if let data = image?.tiffRepresentation {
+            pasteboard.clearContents()
+            pasteboard.setData(data, forType: .tiff)
+        }
     }
 
     // 检查新拷贝项并保存
@@ -66,7 +83,7 @@ class ClipboardListener {
             return
         }
         let type = availableType!;
-        let content = pasteboard.string(forType: type)
+        let content = pasteboard.string(forType: .string)
         // 不需要获取data
         let data = type == PasteType.fileURL ? nil : pasteboard.data(forType: type)
         if let instance = parse(content: content, data: data, type: type) {

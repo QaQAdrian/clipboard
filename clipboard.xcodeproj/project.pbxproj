@@ -24,7 +24,6 @@
 		757450E7239CF0CD003EF2E0 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757450E5239CF0CD003EF2E0 /* StringUtils.swift */; };
 		757450F0239D30E6003EF2E0 /* ListTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757450D5239CE8DD003EF2E0 /* ListTextItem.swift */; };
 		757894502394EF3C00B26DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578944F2394EF3C00B26DDF /* AppDelegate.swift */; };
-		757894522394EF3C00B26DDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894512394EF3C00B26DDF /* ViewController.swift */; };
 		757894542394EF4000B26DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 757894532394EF4000B26DDF /* Assets.xcassets */; };
 		757894572394EF4000B26DDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757894552394EF4000B26DDF /* Main.storyboard */; };
 		757894632394EF4000B26DDF /* clipboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894622394EF4000B26DDF /* clipboardTests.swift */; };
@@ -32,12 +31,6 @@
 		7578947D2394EF7F00B26DDF /* ClipboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578947C2394EF7F00B26DDF /* ClipboardListener.swift */; };
 		757894812394F63B00B26DDF /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894802394F63B00B26DDF /* Clipboard.swift */; };
 		759F9F91239D44C400357E2D /* FadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757450D0239CE7F6003EF2E0 /* FadeView.swift */; };
-		759F9FA0239DED2F00357E2D /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759F9F9F239DED2F00357E2D /* Preview.storyboard */; };
-		759F9FA3239DED6700357E2D /* PreviewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FA2239DED6700357E2D /* PreviewWindowController.swift */; };
-		759F9FA4239DED6700357E2D /* PreviewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FA2239DED6700357E2D /* PreviewWindowController.swift */; };
-		759F9FA6239DEEFA00357E2D /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FA5239DEEFA00357E2D /* PreviewController.swift */; };
-		759F9FA7239DEEFA00357E2D /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FA5239DEEFA00357E2D /* PreviewController.swift */; };
-		759F9FA8239DF54400357E2D /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759F9F9F239DED2F00357E2D /* Preview.storyboard */; };
 		759F9FAA239DFBB300357E2D /* FadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759F9FA9239DFBB300357E2D /* FadeView.xib */; };
 		759F9FAB239DFBB300357E2D /* FadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759F9FA9239DFBB300357E2D /* FadeView.xib */; };
 		759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FAC239E104300357E2D /* NSViewUtils.swift */; };
@@ -55,6 +48,8 @@
 		75FC5627239E4D4300635EE5 /* GrideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC5625239E4D4300635EE5 /* GrideTable.swift */; };
 		75FC5629239E5E8200635EE5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC5628239E5E8200635EE5 /* SplitViewController.swift */; };
 		75FC562A239E5E8200635EE5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC5628239E5E8200635EE5 /* SplitViewController.swift */; };
+		75FC562C239E7E9600635EE5 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC562B239E7E9600635EE5 /* PreviewController.swift */; };
+		75FC562D239E7E9600635EE5 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC562B239E7E9600635EE5 /* PreviewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +119,6 @@
 		757450E5239CF0CD003EF2E0 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		7578944C2394EF3C00B26DDF /* clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7578944F2394EF3C00B26DDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		757894512394EF3C00B26DDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		757894532394EF4000B26DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		757894562394EF4000B26DDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		757894582394EF4000B26DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,9 +132,6 @@
 		7578947C2394EF7F00B26DDF /* ClipboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardListener.swift; sourceTree = "<group>"; };
 		757894802394F63B00B26DDF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		757894882397514200B26DDF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		759F9F9F239DED2F00357E2D /* Preview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
-		759F9FA2239DED6700357E2D /* PreviewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWindowController.swift; sourceTree = "<group>"; };
-		759F9FA5239DEEFA00357E2D /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		759F9FA9239DFBB300357E2D /* FadeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FadeView.xib; sourceTree = "<group>"; };
 		759F9FAC239E104300357E2D /* NSViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewUtils.swift; sourceTree = "<group>"; };
 		75C6DEDE2398B175009B1F1E /* widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +142,8 @@
 		75C6DEEA2398B175009B1F1E /* widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widget.entitlements; sourceTree = "<group>"; };
 		75FC5625239E4D4300635EE5 /* GrideTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrideTable.swift; sourceTree = "<group>"; };
 		75FC5628239E5E8200635EE5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		75FC562B239E7E9600635EE5 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		75FC5632239E867F00635EE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +210,7 @@
 			children = (
 				756E2F98239E406100534C9A /* MainListView.swift */,
 				75FC5628239E5E8200635EE5 /* SplitViewController.swift */,
+				75FC562B239E7E9600635EE5 /* PreviewController.swift */,
 			);
 			path = splitview;
 			sourceTree = "<group>";
@@ -226,7 +220,6 @@
 			children = (
 				759F9FA1239DED5000357E2D /* controllers */,
 				757450D4239CE890003EF2E0 /* views */,
-				759F9F9F239DED2F00357E2D /* Preview.storyboard */,
 				759F9FA9239DFBB300357E2D /* FadeView.xib */,
 				756E2F95239E3FE400534C9A /* ListTextItemView.xib */,
 			);
@@ -276,7 +269,6 @@
 			children = (
 				756E2F97239E403700534C9A /* splitview */,
 				7578944F2394EF3C00B26DDF /* AppDelegate.swift */,
-				757894512394EF3C00B26DDF /* ViewController.swift */,
 				757894532394EF4000B26DDF /* Assets.xcassets */,
 				757894552394EF4000B26DDF /* Main.storyboard */,
 				757894582394EF4000B26DDF /* Info.plist */,
@@ -326,8 +318,6 @@
 		759F9FA1239DED5000357E2D /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				759F9FA2239DED6700357E2D /* PreviewWindowController.swift */,
-				759F9FA5239DEEFA00357E2D /* PreviewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -499,7 +489,6 @@
 				759F9FAA239DFBB300357E2D /* FadeView.xib in Resources */,
 				757894572394EF4000B26DDF /* Main.storyboard in Resources */,
 				756E2F96239E3FE400534C9A /* ListTextItemView.xib in Resources */,
-				759F9FA0239DED2F00357E2D /* Preview.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +511,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				75C6DEF42398DE78009B1F1E /* Assets.xcassets in Resources */,
-				759F9FA8239DF54400357E2D /* Preview.storyboard in Resources */,
 				757450E1239CEFDE003EF2E0 /* Localizable.strings in Resources */,
 				75C6DEE52398B175009B1F1E /* TodayViewController.xib in Resources */,
 				75C6DEE92398B175009B1F1E /* InfoPlist.strings in Resources */,
@@ -547,17 +535,15 @@
 				75FC5626239E4D4300635EE5 /* GrideTable.swift in Sources */,
 				759F9F91239D44C400357E2D /* FadeView.swift in Sources */,
 				759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */,
+				75FC562C239E7E9600635EE5 /* PreviewController.swift in Sources */,
 				756E2F94239E3BC300534C9A /* MainWindowController.swift in Sources */,
-				757894522394EF3C00B26DDF /* ViewController.swift in Sources */,
 				75167B562399FBD1004EF991 /* DateUtils.swift in Sources */,
-				759F9FA6239DEEFA00357E2D /* PreviewController.swift in Sources */,
 				7578947D2394EF7F00B26DDF /* ClipboardListener.swift in Sources */,
 				757894812394F63B00B26DDF /* Clipboard.swift in Sources */,
 				757894502394EF3C00B26DDF /* AppDelegate.swift in Sources */,
 				757450F0239D30E6003EF2E0 /* ListTextItem.swift in Sources */,
 				1CDD7CA7EE876D53DC053C86 /* ClipboardOSX.swift in Sources */,
 				756E2F99239E406100534C9A /* MainListView.swift in Sources */,
-				759F9FA3239DED6700357E2D /* PreviewWindowController.swift in Sources */,
 				757450E6239CF0CD003EF2E0 /* StringUtils.swift in Sources */,
 				75FC5629239E5E8200635EE5 /* SplitViewController.swift in Sources */,
 			);
@@ -584,8 +570,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				75FC5627239E4D4300635EE5 /* GrideTable.swift in Sources */,
-				759F9FA4239DED6700357E2D /* PreviewWindowController.swift in Sources */,
 				75C6DEF12398B17D009B1F1E /* ClipboardListener.swift in Sources */,
+				75FC562D239E7E9600635EE5 /* PreviewController.swift in Sources */,
 				75C6DEF22398B17D009B1F1E /* Clipboard.swift in Sources */,
 				757450D1239CE7F6003EF2E0 /* FadeView.swift in Sources */,
 				75C6DEF32398B17D009B1F1E /* ClipboardOSX.swift in Sources */,
@@ -594,7 +580,6 @@
 				757450D8239CE99C003EF2E0 /* ClipboardListView.swift in Sources */,
 				757450D9239CED3E003EF2E0 /* DateUtils.swift in Sources */,
 				759F9FAE239E104300357E2D /* NSViewUtils.swift in Sources */,
-				759F9FA7239DEEFA00357E2D /* PreviewController.swift in Sources */,
 				757450E7239CF0CD003EF2E0 /* StringUtils.swift in Sources */,
 				75C6DEE22398B175009B1F1E /* TodayViewController.swift in Sources */,
 				75167B9E239A5CFB004EF991 /* SegmentControl.swift in Sources */,
@@ -637,6 +622,7 @@
 			children = (
 				757894562394EF4000B26DDF /* Base */,
 				757450DA239CEF13003EF2E0 /* zh-Hans */,
+				75FC5632239E867F00635EE5 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -9,7 +9,11 @@
 import Foundation
 import AppKit
 
-class MainWindowController : NSWindowController{
+class MainWindowController : NSWindowController, NSWindowDelegate{
     override func windowDidLoad() {
+        self.window?.level = .floating
+        self.window?.makeKeyAndOrderFront(nil)
+        self.window?.makeMain()
+        self.window?.delegate = self
     }
 }
