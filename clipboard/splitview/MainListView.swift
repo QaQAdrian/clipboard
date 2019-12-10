@@ -71,6 +71,11 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
                 }
             }
         }
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: {_ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
         tableView.reloadData()
     }
 
@@ -106,6 +111,7 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     // 点击预览
     private func preview(_ item: ClipboardOSX?) {
+        splitViewController()?.expandRightView()
         getPreviewController()?.item = item
     }
 

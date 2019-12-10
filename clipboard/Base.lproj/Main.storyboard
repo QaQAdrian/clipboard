@@ -15,7 +15,67 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="clipboard" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="clipboard" customModuleProvider="target">
+                    <connections>
+                        <outlet property="menu" destination="Mfu-uL-NVh" id="P5X-qG-zQL"/>
+                    </connections>
+                </customObject>
+                <menu id="Mfu-uL-NVh" customClass="Menu" customModule="clipboard" customModuleProvider="target">
+                    <items>
+                        <menuItem title="Start" hidden="YES" id="eLP-4I-QnU">
+                            <attributedString key="attributedTitle"/>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="start:" target="Mfu-uL-NVh" id="oEL-8D-Oln"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Stop" id="hb1-GS-UaT">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="stop:" target="Mfu-uL-NVh" id="Ipi-Zs-G68"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="JLe-AD-Q6z"/>
+                        <menuItem title="Open App" id="T12-YP-wK4">
+                            <attributedString key="attributedTitle"/>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openWindow:" target="Mfu-uL-NVh" id="dd2-5d-Zod"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Setting" id="vWx-dN-lvX">
+                            <attributedString key="attributedTitle"/>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="openSetting:" target="Mfu-uL-NVh" id="otJ-qY-Ttp"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="vyS-dv-YeQ"/>
+                        <menuItem title="Mark" hidden="YES" id="SOj-Wa-RUJ">
+                            <attributedString key="attributedTitle"/>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="giveMark:" target="Mfu-uL-NVh" id="xVG-ai-8t3"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Feedback" hidden="YES" id="HYf-Vk-cxj">
+                            <attributedString key="attributedTitle"/>
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="feedback:" target="Mfu-uL-NVh" id="58b-gD-bsF"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Quit" keyEquivalent="q" id="IIB-vB-H3q">
+                            <connections>
+                                <action selector="quit:" target="Mfu-uL-NVh" id="Ieu-cx-Gej"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                    <connections>
+                        <outlet property="startBtn" destination="eLP-4I-QnU" id="eId-nX-Zwx"/>
+                        <outlet property="stopBtn" destination="hb1-GS-UaT" id="QYP-Jm-UCY"/>
+                    </connections>
+                </menu>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,7 +85,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="clipboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Clipboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -90,7 +150,7 @@
                                             <tableColumns>
                                                 <tableColumn width="317" minWidth="40" maxWidth="1000" id="0WV-J4-58y">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -220,18 +280,8 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="aH0-vl-C54">
                                 <rect key="frame" x="0.0" y="460" width="450" height="40"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gv9-dY-Ztx">
-                                        <rect key="frame" x="385" y="8" width="44" height="23"/>
-                                        <buttonCell key="cell" type="roundTextured" title="copy" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XS1-TQ-RJt">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="copyBtn:" target="nFZ-bz-gsC" id="9pv-oa-h9B"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-9z-5QU">
-                                        <rect key="frame" x="312" y="2" width="71" height="32"/>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-9z-5QU">
+                                        <rect key="frame" x="365" y="3" width="71" height="32"/>
                                         <buttonCell key="cell" type="push" title="open" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t18-1s-jp9">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -242,13 +292,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Gv9-dY-Ztx" secondAttribute="trailing" constant="21" id="EcV-XA-fSz"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dcb-9z-5QU" secondAttribute="trailing" constant="20" id="Gcc-7k-AgA"/>
+                                    <constraint firstAttribute="trailing" secondItem="dcb-9z-5QU" secondAttribute="trailing" constant="20" id="Gcc-7k-AgA"/>
                                     <constraint firstItem="dcb-9z-5QU" firstAttribute="centerY" secondItem="aH0-vl-C54" secondAttribute="centerY" id="IHm-PJ-uID"/>
-                                    <constraint firstItem="dcb-9z-5QU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aH0-vl-C54" secondAttribute="leading" constant="20" id="Wlo-Lo-Scj"/>
                                     <constraint firstAttribute="height" constant="40" id="bKl-Ga-Og7"/>
-                                    <constraint firstItem="Gv9-dY-Ztx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dcb-9z-5QU" secondAttribute="trailing" constant="8" symbolic="YES" id="fND-PS-TGo"/>
-                                    <constraint firstItem="Gv9-dY-Ztx" firstAttribute="centerY" secondItem="aH0-vl-C54" secondAttribute="centerY" id="gZU-kh-Hvm"/>
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="l1E-zu-z87">
@@ -296,7 +342,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="copyBtn" destination="Gv9-dY-Ztx" id="CiB-Ud-huH"/>
                         <outlet property="imageView" destination="7Jz-PB-zfl" id="wrN-dk-hX3"/>
                         <outlet property="openBtn" destination="dcb-9z-5QU" id="6ft-1f-vNP"/>
                         <outlet property="previewView" destination="l1E-zu-z87" id="BJB-te-yvM"/>

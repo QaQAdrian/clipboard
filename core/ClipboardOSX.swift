@@ -113,7 +113,7 @@ extension ClipboardItems {
         if self.hasSame(other) {
             return false
         }
-        self.append(other)
+        self.insert(other, at: 0)
         return true
     }
 }

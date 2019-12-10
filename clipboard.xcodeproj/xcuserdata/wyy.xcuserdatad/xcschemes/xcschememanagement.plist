@@ -4,30 +4,37 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>clipboard.xcscheme</key>
+		<key>clipboard.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>cmd.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 		<key>widget.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true />
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>75167B5A239A00F8004EF991</key>
+		<dict>
+			<key>primary</key>
+			<true />
+		</dict>
 		<key>7578944B2394EF3C00B26DDF</key>
 		<dict>
 			<key>primary</key>
 			<true />
 		</dict>
 		<key>7578945D2394EF4000B26DDF</key>
+		<dict>
+			<key>primary</key>
+			<true />
+		</dict>
+		<key>757894682394EF4000B26DDF</key>
 		<dict>
 			<key>primary</key>
 			<true />

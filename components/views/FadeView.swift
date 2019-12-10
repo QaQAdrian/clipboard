@@ -74,12 +74,10 @@ class FadeView: NSView, CAAnimationDelegate {
 
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false, block: {_ in
-            print("remove \(Date())")
             self.removeFromSuperview()
         })
     }
     
     func animationDidStart(_ anim: CAAnimation) {
-        print("started")
     }
 }

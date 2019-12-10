@@ -13,10 +13,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let clipboard = ClipboardListener.shared
     var iStatucBar: StatusBar?
 
+    @IBOutlet weak var menu: Menu!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         clipboard.startListening()
-        iStatucBar = StatusBar()
-        print("status bar \(iStatucBar != nil)")
+        iStatucBar = StatusBar(menu)
         NSApp.setActivationPolicy(.regular)
     }
 

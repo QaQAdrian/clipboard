@@ -63,7 +63,7 @@
                 <outlet property="startBtn" destination="ika-a8-bgr" id="cAF-B4-zX6"/>
                 <outlet property="stopBtn" destination="anw-He-5Dl" id="iVa-i0-zoF"/>
             </connections>
-            <point key="canvasLocation" x="78.5" y="-21"/>
+            <point key="canvasLocation" x="78" y="-21"/>
         </menu>
     </objects>
 </document>

@@ -9,7 +9,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="TodayViewController" customModule="widget" customModuleProvider="target">
             <connections>
                 <outlet property="scrollView" destination="7uq-ic-PWK" id="Erk-Ib-L3Y"/>
-                <outlet property="segmentControl" destination="YOe-LM-Azb" id="6qy-qg-WZq"/>
                 <outlet property="tableView" destination="gve-SD-Rm2" id="tqm-gD-Oyv"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -17,26 +16,16 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView simulatedAppContext="notificationCenter" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
             <subviews>
-                <segmentedControl verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOe-LM-Azb">
-                    <rect key="frame" x="0.0" y="307" width="322" height="24"/>
-                    <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="rounded" trackingMode="selectOne" id="FFN-v8-AqW">
-                        <font key="font" metaFont="system"/>
-                        <segments>
-                            <segment image="add" width="100"/>
-                            <segment alignment="justified" image="fav" width="100" selected="YES" tag="1"/>
-                        </segments>
-                    </segmentedCell>
-                </segmentedControl>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="71" horizontalPageScroll="10" verticalLineScroll="71" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="7uq-ic-PWK">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                     <clipView key="contentView" drawsBackground="NO" id="HqV-c0-G7R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="69" rowSizeStyle="automatic" viewBased="YES" id="gve-SD-Rm2">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="300"/>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="69" rowSizeStyle="automatic" viewBased="YES" id="gve-SD-Rm2" customClass="GridTable" customModule="widget" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="350"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,7 +34,7 @@
                                 <tableColumns>
                                     <tableColumn editable="NO" width="326" minWidth="10" maxWidth="1000" id="WYo-gJ-LUm">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                            <font key="font" metaFont="message" size="11"/>
+                                            <font key="font" metaFont="label" size="11"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -81,12 +70,12 @@
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-tN-wAW">
                                                         <rect key="frame" x="41" y="8" width="48" height="14"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="3 小时前" id="3pk-Ug-JIb">
-                                                            <font key="font" metaFont="message" size="11"/>
+                                                            <font key="font" metaFont="label" size="11"/>
                                                             <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="jLP-hD-dA6">
+                                                    <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLP-hD-dA6">
                                                         <rect key="frame" x="286" y="0.0" width="40" height="67"/>
                                                         <subviews>
                                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="rG4-1d-zLu">
@@ -136,10 +125,10 @@
                                 </tableColumns>
                             </tableView>
                         </subviews>
-                        <nil key="backgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.7548071112006447" colorSpace="custom" customColorSpace="sRGB"/>
                     </clipView>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="Yhz-vX-dRw"/>
+                        <constraint firstAttribute="height" constant="350" id="Yhz-vX-dRw"/>
                     </constraints>
                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Zq2-vb-elG">
                         <rect key="frame" x="-100" y="-100" width="280" height="16"/>
@@ -153,22 +142,16 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="7uq-ic-PWK" secondAttribute="bottom" id="67R-fu-l1H"/>
-                <constraint firstItem="7uq-ic-PWK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="30" id="G7N-YQ-eRi"/>
+                <constraint firstItem="7uq-ic-PWK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="G7N-YQ-eRi"/>
                 <constraint firstAttribute="trailing" secondItem="7uq-ic-PWK" secondAttribute="trailing" id="NXn-cb-tTm"/>
                 <constraint firstItem="7uq-ic-PWK" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="R9c-ju-zOu"/>
-                <constraint firstItem="YOe-LM-Azb" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Wh1-oI-QZk"/>
-                <constraint firstItem="YOe-LM-Azb" firstAttribute="trailing" secondItem="7uq-ic-PWK" secondAttribute="trailing" id="gNC-oo-ATz"/>
-                <constraint firstItem="YOe-LM-Azb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="2" id="ifx-c9-a3R"/>
-                <constraint firstItem="7uq-ic-PWK" firstAttribute="top" secondItem="YOe-LM-Azb" secondAttribute="bottom" constant="9" id="mku-7G-BMN"/>
                 <constraint firstItem="7uq-ic-PWK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="zH6-K7-RCu"/>
             </constraints>
-            <point key="canvasLocation" x="178" y="609"/>
+            <point key="canvasLocation" x="178" y="583"/>
         </customView>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSQuickLookTemplate" width="19" height="12"/>
-        <image name="add" width="100" height="100"/>
-        <image name="fav" width="100" height="100"/>
     </resources>
 </document>

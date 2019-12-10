@@ -14,23 +14,7 @@ class TodayViewController: NSViewController, NCWidgetProviding {
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var scrollView: NSScrollView!
 
-    private var clipboardListener = ClipboardListener.shared {
-        didSet {
-            clipboardListener.onNewCopy({
-                self.items.append($0)
-                self.tableView.reloadData()
-            })
-        }
-    }
-
-    private lazy var items = [
-        ClipboardOSX(content: "yahahha1"),
-        ClipboardOSX(content: "yahahha2"),
-        ClipboardOSX(content: "yahahha3yahahha3yahahha3yahahha3yahahha3yahahha3yahahha3yahahha3"),
-        ClipboardOSX(content: "yahahha4"),
-        ClipboardOSX(content: "yahahha5"),
-        ClipboardOSX(content: "yahahha6yahahha6yahahha6yahahha6yahahha6yahahha6yahahha6"),
-    ]
+    private lazy var items:ClipboardItems = []
 
     override var nibName: NSNib.Name? {
         NSNib.Name("TodayViewController")
@@ -47,10 +31,22 @@ class TodayViewController: NSViewController, NCWidgetProviding {
 
 extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
     override func viewDidLoad() {
-        segmentControl.segmentDistribution = .fillEqually
-        let width = view.frame.size.width / 2 - 20
-        segmentControl.setWidth(width, forSegment: 0)
-        segmentControl.setWidth(width, forSegment: 1)
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: {_ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
+        ClipboardListener.shared.onNewCopy({
+            if self.items.appendExcludeSame($0) {
+                if self.items.count > 5 {
+                    self.items.removeSubrange(5...self.items.count - 1)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        })
+        ClipboardListener.shared.startListening()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
@@ -66,8 +62,8 @@ extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     // 点击cell
     private func clickHook(_ item: ClipboardOSX?, _ view: ListTextItem) {
-        if let selected = item, let str = selected.content {
-            clipboardListener.copy(str)
+        if let selected = item {
+            selected.copy()
             view.showCheckMark()
         }
     }
@@ -75,9 +71,15 @@ extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
     // 点击预览
     private func preview(_ item: ClipboardOSX?) {
         NSWorkspace.shared.launchApplication(withBundleIdentifier: "com.blabla.clipboard", options: [NSWorkspace.LaunchOptions.async], additionalEventParamDescriptor: NSAppleEventDescriptor(string: "Hello"), launchIdentifier: nil)
-//        if let url = URL(string: "clipboard://abc") {
-//            self.extensionContext?.open(url, completionHandler: {print("open main app \($0)")})
-//        }
+    }
+    
+    private func loadListTextItemView() -> ListTextItem? {
+        var itemView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListTextItem"), owner: self) as? ListTextItem
+        if itemView == nil {
+            itemView = ListTextItem.createFromNib("ListTextItemView")
+            itemView?.identifier = NSUserInterfaceItemIdentifier(rawValue: "ListTextItem")
+        }
+        return itemView
     }
 
     public func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -90,7 +92,7 @@ extension TodayViewController: NSTableViewDelegate, NSTableViewDataSource {
         itemView.preview = preview
         itemView.itemId = item.id
         itemView.item = item
-        itemView.setImage(image: NSImage(named: "TypeIcon"))
+        itemView.setImage(image: item.showImage())
         itemView.setText(content: item.content)
         itemView.setElapse(createDate: item.createDate)
         return itemView

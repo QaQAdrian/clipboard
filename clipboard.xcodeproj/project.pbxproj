@@ -26,8 +26,6 @@
 		757894502394EF3C00B26DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578944F2394EF3C00B26DDF /* AppDelegate.swift */; };
 		757894542394EF4000B26DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 757894532394EF4000B26DDF /* Assets.xcassets */; };
 		757894572394EF4000B26DDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757894552394EF4000B26DDF /* Main.storyboard */; };
-		757894632394EF4000B26DDF /* clipboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894622394EF4000B26DDF /* clipboardTests.swift */; };
-		7578946E2394EF4000B26DDF /* clipboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578946D2394EF4000B26DDF /* clipboardUITests.swift */; };
 		7578947D2394EF7F00B26DDF /* ClipboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578947C2394EF7F00B26DDF /* ClipboardListener.swift */; };
 		757894812394F63B00B26DDF /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894802394F63B00B26DDF /* Clipboard.swift */; };
 		758CB487239F45F00067A970 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758CB486239F45F00067A970 /* StatusBar.swift */; };
@@ -37,6 +35,7 @@
 		759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FAC239E104300357E2D /* NSViewUtils.swift */; };
 		759F9FAE239E104300357E2D /* NSViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FAC239E104300357E2D /* NSViewUtils.swift */; };
 		75B45F77239F66080045F635 /* StatusBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75B45F79239F66080045F635 /* StatusBarMenu.xib */; };
+		75B45F7E239F7D880045F635 /* ListTextItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756E2F95239E3FE400534C9A /* ListTextItemView.xib */; };
 		75C6DEDF2398B175009B1F1E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757894882397514200B26DDF /* NotificationCenter.framework */; };
 		75C6DEE22398B175009B1F1E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6DEE12398B175009B1F1E /* TodayViewController.swift */; };
 		75C6DEE52398B175009B1F1E /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C6DEE32398B175009B1F1E /* TodayViewController.xib */; };
@@ -55,20 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7578945F2394EF4000B26DDF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 757894442394EF3C00B26DDF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7578944B2394EF3C00B26DDF;
-			remoteInfo = clipboard;
-		};
-		7578946A2394EF4000B26DDF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 757894442394EF3C00B26DDF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7578944B2394EF3C00B26DDF;
-			remoteInfo = clipboard;
-		};
 		75C6DEEB2398B175009B1F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 757894442394EF3C00B26DDF /* Project object */;
@@ -79,15 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		75167B59239A00F8004EF991 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		7578949B2397514200B26DDF /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -104,7 +80,6 @@
 /* Begin PBXFileReference section */
 		1CDD7375EE2396187A6AE33D /* ClipboardOSX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardOSX.swift; sourceTree = "<group>"; };
 		75167B552399FBD1004EF991 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
-		75167B5B239A00F8004EF991 /* cmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cmd; sourceTree = BUILT_PRODUCTS_DIR; };
 		75167B9D239A5CFB004EF991 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		75200CBE2398FBCB0092C89D /* WidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButton.swift; sourceTree = "<group>"; };
 		756E2F93239E3BC300534C9A /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
@@ -125,12 +100,6 @@
 		757894562394EF4000B26DDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		757894582394EF4000B26DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		757894592394EF4000B26DDF /* clipboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = clipboard.entitlements; sourceTree = "<group>"; };
-		7578945E2394EF4000B26DDF /* clipboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clipboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		757894622394EF4000B26DDF /* clipboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clipboardTests.swift; sourceTree = "<group>"; };
-		757894642394EF4000B26DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		757894692394EF4000B26DDF /* clipboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = clipboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7578946D2394EF4000B26DDF /* clipboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clipboardUITests.swift; sourceTree = "<group>"; };
-		7578946F2394EF4000B26DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7578947C2394EF7F00B26DDF /* ClipboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardListener.swift; sourceTree = "<group>"; };
 		757894802394F63B00B26DDF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		757894882397514200B26DDF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -153,28 +122,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		75167B58239A00F8004EF991 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		757894492394EF3C00B26DDF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7578945B2394EF4000B26DDF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		757894662394EF4000B26DDF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,8 +198,6 @@
 				757450D3239CE868003EF2E0 /* components */,
 				7578947B2394EF6900B26DDF /* core */,
 				7578944E2394EF3C00B26DDF /* clipboard */,
-				757894612394EF4000B26DDF /* clipboardTests */,
-				7578946C2394EF4000B26DDF /* clipboardUITests */,
 				75C6DEE02398B175009B1F1E /* widget */,
 				757894872397514200B26DDF /* Frameworks */,
 				7578944D2394EF3C00B26DDF /* Products */,
@@ -262,10 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				7578944C2394EF3C00B26DDF /* clipboard.app */,
-				7578945E2394EF4000B26DDF /* clipboardTests.xctest */,
-				757894692394EF4000B26DDF /* clipboardUITests.xctest */,
 				75C6DEDE2398B175009B1F1E /* widget.appex */,
-				75167B5B239A00F8004EF991 /* cmd */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -283,24 +226,6 @@
 				756E2F93239E3BC300534C9A /* MainWindowController.swift */,
 			);
 			path = clipboard;
-			sourceTree = "<group>";
-		};
-		757894612394EF4000B26DDF /* clipboardTests */ = {
-			isa = PBXGroup;
-			children = (
-				757894622394EF4000B26DDF /* clipboardTests.swift */,
-				757894642394EF4000B26DDF /* Info.plist */,
-			);
-			path = clipboardTests;
-			sourceTree = "<group>";
-		};
-		7578946C2394EF4000B26DDF /* clipboardUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7578946D2394EF4000B26DDF /* clipboardUITests.swift */,
-				7578946F2394EF4000B26DDF /* Info.plist */,
-			);
-			path = clipboardUITests;
 			sourceTree = "<group>";
 		};
 		7578947B2394EF6900B26DDF /* core */ = {
@@ -354,23 +279,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		75167B5A239A00F8004EF991 /* cmd */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75167B5F239A00F8004EF991 /* Build configuration list for PBXNativeTarget "cmd" */;
-			buildPhases = (
-				75167B57239A00F8004EF991 /* Sources */,
-				75167B58239A00F8004EF991 /* Frameworks */,
-				75167B59239A00F8004EF991 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = cmd;
-			productName = cmd;
-			productReference = 75167B5B239A00F8004EF991 /* cmd */;
-			productType = "com.apple.product-type.tool";
-		};
 		7578944B2394EF3C00B26DDF /* clipboard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 757894722394EF4000B26DDF /* Build configuration list for PBXNativeTarget "clipboard" */;
@@ -389,42 +297,6 @@
 			productName = clipboard;
 			productReference = 7578944C2394EF3C00B26DDF /* clipboard.app */;
 			productType = "com.apple.product-type.application";
-		};
-		7578945D2394EF4000B26DDF /* clipboardTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 757894752394EF4000B26DDF /* Build configuration list for PBXNativeTarget "clipboardTests" */;
-			buildPhases = (
-				7578945A2394EF4000B26DDF /* Sources */,
-				7578945B2394EF4000B26DDF /* Frameworks */,
-				7578945C2394EF4000B26DDF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				757894602394EF4000B26DDF /* PBXTargetDependency */,
-			);
-			name = clipboardTests;
-			productName = clipboardTests;
-			productReference = 7578945E2394EF4000B26DDF /* clipboardTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		757894682394EF4000B26DDF /* clipboardUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 757894782394EF4000B26DDF /* Build configuration list for PBXNativeTarget "clipboardUITests" */;
-			buildPhases = (
-				757894652394EF4000B26DDF /* Sources */,
-				757894662394EF4000B26DDF /* Frameworks */,
-				757894672394EF4000B26DDF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7578946B2394EF4000B26DDF /* PBXTargetDependency */,
-			);
-			name = clipboardUITests;
-			productName = clipboardUITests;
-			productReference = 757894692394EF4000B26DDF /* clipboardUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		75C6DEDD2398B175009B1F1E /* widget */ = {
 			isa = PBXNativeTarget;
@@ -453,19 +325,8 @@
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = yahaha;
 				TargetAttributes = {
-					75167B5A239A00F8004EF991 = {
-						CreatedOnToolsVersion = 11.2.1;
-					};
 					7578944B2394EF3C00B26DDF = {
 						CreatedOnToolsVersion = 11.2.1;
-					};
-					7578945D2394EF4000B26DDF = {
-						CreatedOnToolsVersion = 11.2.1;
-						TestTargetID = 7578944B2394EF3C00B26DDF;
-					};
-					757894682394EF4000B26DDF = {
-						CreatedOnToolsVersion = 11.2.1;
-						TestTargetID = 7578944B2394EF3C00B26DDF;
 					};
 					75C6DEDD2398B175009B1F1E = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -487,10 +348,7 @@
 			projectRoot = "";
 			targets = (
 				7578944B2394EF3C00B26DDF /* clipboard */,
-				7578945D2394EF4000B26DDF /* clipboardTests */,
-				757894682394EF4000B26DDF /* clipboardUITests */,
 				75C6DEDD2398B175009B1F1E /* widget */,
-				75167B5A239A00F8004EF991 /* cmd */,
 			);
 		};
 /* End PBXProject section */
@@ -509,20 +367,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7578945C2394EF4000B26DDF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		757894672394EF4000B26DDF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		75C6DEDC2398B175009B1F1E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,6 +375,7 @@
 				757450E1239CEFDE003EF2E0 /* Localizable.strings in Resources */,
 				75C6DEE52398B175009B1F1E /* TodayViewController.xib in Resources */,
 				75C6DEE92398B175009B1F1E /* InfoPlist.strings in Resources */,
+				75B45F7E239F7D880045F635 /* ListTextItemView.xib in Resources */,
 				759F9FAB239DFBB300357E2D /* FadeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,13 +383,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		75167B57239A00F8004EF991 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		757894482394EF3C00B26DDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,22 +402,6 @@
 				756E2F99239E406100534C9A /* MainListView.swift in Sources */,
 				757450E6239CF0CD003EF2E0 /* StringUtils.swift in Sources */,
 				75FC5629239E5E8200635EE5 /* SplitViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7578945A2394EF4000B26DDF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				757894632394EF4000B26DDF /* clipboardTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		757894652394EF4000B26DDF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7578946E2394EF4000B26DDF /* clipboardUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,16 +430,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		757894602394EF4000B26DDF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7578944B2394EF3C00B26DDF /* clipboard */;
-			targetProxy = 7578945F2394EF4000B26DDF /* PBXContainerItemProxy */;
-		};
-		7578946B2394EF4000B26DDF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7578944B2394EF3C00B26DDF /* clipboard */;
-			targetProxy = 7578946A2394EF4000B26DDF /* PBXContainerItemProxy */;
-		};
 		75C6DEEC2398B175009B1F1E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 75C6DEDD2398B175009B1F1E /* widget */;
@@ -676,28 +488,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		75167B60239A00F8004EF991 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E29933B74S;
-				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		75167B61239A00F8004EF991 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E29933B74S;
-				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		757894702394EF4000B26DDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -859,90 +649,6 @@
 			};
 			name = Release;
 		};
-		757894762394EF4000B26DDF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = E29933B74S;
-				INFOPLIST_FILE = clipboardTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.clipboardTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clipboard.app/Contents/MacOS/clipboard";
-			};
-			name = Debug;
-		};
-		757894772394EF4000B26DDF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = E29933B74S;
-				INFOPLIST_FILE = clipboardTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.clipboardTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clipboard.app/Contents/MacOS/clipboard";
-			};
-			name = Release;
-		};
-		757894792394EF4000B26DDF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = E29933B74S;
-				INFOPLIST_FILE = clipboardUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.clipboardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = clipboard;
-			};
-			name = Debug;
-		};
-		7578947A2394EF4000B26DDF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = E29933B74S;
-				INFOPLIST_FILE = clipboardUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.clipboardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = clipboard;
-			};
-			name = Release;
-		};
 		75C6DEEF2398B175009B1F1E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -990,15 +696,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		75167B5F239A00F8004EF991 /* Build configuration list for PBXNativeTarget "cmd" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				75167B60239A00F8004EF991 /* Debug */,
-				75167B61239A00F8004EF991 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		757894472394EF3C00B26DDF /* Build configuration list for PBXProject "clipboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1013,24 +710,6 @@
 			buildConfigurations = (
 				757894732394EF4000B26DDF /* Debug */,
 				757894742394EF4000B26DDF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		757894752394EF4000B26DDF /* Build configuration list for PBXNativeTarget "clipboardTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				757894762394EF4000B26DDF /* Debug */,
-				757894772394EF4000B26DDF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		757894782394EF4000B26DDF /* Build configuration list for PBXNativeTarget "clipboardUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				757894792394EF4000B26DDF /* Debug */,
-				7578947A2394EF4000B26DDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

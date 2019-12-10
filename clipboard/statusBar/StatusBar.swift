@@ -10,14 +10,6 @@ import Foundation
 import AppKit
 
 class Menu: NSMenu {
-    static func loadFromXib() -> Self? {
-        var topLevelArray: NSArray? = nil
-        Bundle.main.loadNibNamed("StatusBarMenu", owner: nil, topLevelObjects: &topLevelArray)
-        guard let results = topLevelArray else { return nil }
-        let views = Array<Any>(results).filter { $0 is Self }
-        return views.last as? Self
-    }
-    
     @IBOutlet var startBtn: NSMenuItem!
     @IBOutlet var stopBtn: NSMenuItem!
     
@@ -58,8 +50,7 @@ class StatusBar {
         return item
     }()
 
-    init?() {
-        guard let menu = Menu.loadFromXib() else {return nil}
+    init(_ menu: Menu) {
         self.menuIcon.menu = menu
     }
     
