@@ -150,7 +150,7 @@
                                             <tableColumns>
                                                 <tableColumn width="317" minWidth="40" maxWidth="1000" id="0WV-J4-58y">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -209,7 +209,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="expandRightView:" target="qw5-XE-nny" id="Tvv-a4-LBm"/>
+                                            <action selector="clearUp:" target="qw5-XE-nny" id="erW-8i-ZSf"/>
                                         </connections>
                                     </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="B4j-jq-SPZ">
