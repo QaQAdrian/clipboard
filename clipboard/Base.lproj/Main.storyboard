@@ -247,13 +247,34 @@
                                     <constraint firstItem="B4j-jq-SPZ" firstAttribute="leading" secondItem="isq-iJ-sLj" secondAttribute="trailing" constant="17" id="kQG-NE-SWN"/>
                                 </constraints>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="c5w-Bu-WTt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lwo-A1-BVP">
+                                        <rect key="frame" x="60" y="130" width="200" height="200"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="empty" id="vH9-Tj-9RE"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lwo-A1-BVP" secondAttribute="trailing" constant="50" id="40q-No-EYg"/>
+                                    <constraint firstItem="lwo-A1-BVP" firstAttribute="centerY" secondItem="c5w-Bu-WTt" secondAttribute="centerY" id="PeZ-Wn-tZO"/>
+                                    <constraint firstItem="lwo-A1-BVP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c5w-Bu-WTt" secondAttribute="leading" constant="50" id="ZV0-Ao-oWc"/>
+                                    <constraint firstItem="lwo-A1-BVP" firstAttribute="centerX" secondItem="c5w-Bu-WTt" secondAttribute="centerX" id="m0c-3a-DvM"/>
+                                    <constraint firstItem="lwo-A1-BVP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c5w-Bu-WTt" secondAttribute="top" constant="50" id="n34-gU-0Yp"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lwo-A1-BVP" secondAttribute="bottom" constant="50" id="s3f-E6-9ai"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="NaM-gi-HAF" firstAttribute="leading" secondItem="iCv-hW-qs7" secondAttribute="leading" id="2cW-nQ-D8H"/>
+                            <constraint firstItem="c5w-Bu-WTt" firstAttribute="leading" secondItem="iCv-hW-qs7" secondAttribute="leading" id="8l0-xj-kYK"/>
                             <constraint firstAttribute="trailing" secondItem="D1K-u2-9dA" secondAttribute="trailing" id="Aqs-5W-4y2"/>
+                            <constraint firstItem="c5w-Bu-WTt" firstAttribute="top" secondItem="D1K-u2-9dA" secondAttribute="bottom" id="Dde-7k-YSr"/>
                             <constraint firstItem="D1K-u2-9dA" firstAttribute="top" secondItem="iCv-hW-qs7" secondAttribute="top" id="FCd-5E-gwU"/>
+                            <constraint firstAttribute="trailing" secondItem="c5w-Bu-WTt" secondAttribute="trailing" id="K0X-Ce-nj1"/>
                             <constraint firstAttribute="trailing" secondItem="NaM-gi-HAF" secondAttribute="trailing" id="QLd-Pz-xRg"/>
                             <constraint firstItem="D1K-u2-9dA" firstAttribute="centerX" secondItem="iCv-hW-qs7" secondAttribute="centerX" id="RcE-PO-cPo"/>
+                            <constraint firstAttribute="bottom" secondItem="c5w-Bu-WTt" secondAttribute="bottom" id="cIV-KO-xWI"/>
                             <constraint firstItem="NaM-gi-HAF" firstAttribute="top" secondItem="D1K-u2-9dA" secondAttribute="bottom" id="l47-Es-5FW"/>
                             <constraint firstItem="NaM-gi-HAF" firstAttribute="centerX" secondItem="iCv-hW-qs7" secondAttribute="centerX" id="owY-CY-0df"/>
                             <constraint firstItem="D1K-u2-9dA" firstAttribute="leading" secondItem="iCv-hW-qs7" secondAttribute="leading" id="sRx-4V-ZAb"/>
@@ -261,7 +282,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyView" destination="c5w-Bu-WTt" id="XDh-n1-f0T"/>
                         <outlet property="pinBtn" destination="isq-iJ-sLj" id="Pas-8a-tjb"/>
+                        <outlet property="scrollList" destination="NaM-gi-HAF" id="f5f-Gf-c1w"/>
                         <outlet property="tableView" destination="2l6-2B-uXW" id="VJX-d6-t1T"/>
                     </connections>
                 </viewController>
@@ -375,6 +398,7 @@
     <resources>
         <image name="NSTouchBarSidebarTemplate" width="22" height="30"/>
         <image name="clearAll" width="100" height="100"/>
+        <image name="empty" width="100" height="100"/>
         <image name="pin" width="100" height="100"/>
     </resources>
 </document>

@@ -11,27 +11,41 @@ import Foundation
 
 class MainListViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
-    private var items: ClipboardItems = []
+    @IBOutlet var scrollList: NSScrollView!
+    private var items: ClipboardItems = [] {
+        didSet {
+            let isEmpty = items.count <= 0
+            DispatchQueue.main.async {
+                self.emptyView?.isHidden = !isEmpty
+                self.scrollList?.isHidden = isEmpty
+                if !isEmpty {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+
     @IBOutlet var pinBtn: NSButton!
+    @IBOutlet var emptyView: NSView!
     private var previewController: PreviewController?
     private var splitController: SplitViewController?
-    
+
     private var pinned = UserDefaults.standard.bool(forKey: "pinned") {
         didSet {
             checkPinBtn()
-            UserDefaults.standard.set(self.pinned, forKey: "pinned")
+            UserDefaults.standard.set(pinned, forKey: "pinned")
         }
     }
-    
+
     func checkPinBtn() {
         if pinBtn != nil {
-            pinBtn.image = self.pinned ? NSImage(named: "pin") : NSImage(named: "unpin")
+            pinBtn.image = pinned ? NSImage(named: "pin") : NSImage(named: "unpin")
         }
-        self.view.window?.level = self.pinned ? .floating: .normal;
+        view.window?.level = pinned ? .floating : .normal
     }
-    
+
     @IBAction func pin(_ sender: Any) {
-        self.pinned = !self.pinned
+        pinned = !pinned
     }
 
     @IBAction func expandRightView(_ sender: NSButton) {
@@ -41,13 +55,12 @@ class MainListViewController: NSViewController {
     }
 
     @IBAction func clearUp(_ sender: Any) {
-        self.items.removeAll()
-        tableView.reloadData()
+        items.removeAll()
         AppDelegate.clearCache()
+        self.previewController?.item = nil
     }
-    
 
-    private let clipboard = ClipboardListener.shared;
+    private let clipboard = ClipboardListener.shared
 }
 
 extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
@@ -62,13 +75,9 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         splitController = splitViewController()
         previewController = getPreviewController()
         clipboard.onNewCopy {
-            if self.items.appendExcludeSame($0) {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
+            _ = self.items.appendExcludeSame($0)
         }
-        Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: {_ in
+        Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { _ in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -124,7 +133,7 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return items.count 
+        return items.count
     }
 }
 
@@ -136,7 +145,7 @@ extension MainListViewController {
             controller.item = item
         }
     }
-    
+
     func getPreviewController() -> PreviewController? {
         if let controller = splitController {
             if let preview = controller.children.last, preview is PreviewController {
@@ -145,7 +154,7 @@ extension MainListViewController {
         }
         return nil
     }
-    
+
     func splitViewController() -> SplitViewController? {
         if let existParent = self.parent, existParent is SplitViewController {
             return existParent as? SplitViewController

@@ -89,7 +89,7 @@ class PreviewController: NSViewController {
         }
         needImage = need
         if needImage {
-            imageView.image = item?.showImage() ?? NSImage(named: "empty")
+            imageView.image = item?.showImage() ?? NSImage(named: "doc")
         } else {
             textView.string = item?.showContent() ?? ""
         }
