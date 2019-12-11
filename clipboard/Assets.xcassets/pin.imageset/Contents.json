@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "pin (3).png",
+      "filename" : "pin (7).png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "pin (3)-1.png",
+      "filename" : "pin (7)-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "pin (3)-2.png",
+      "filename" : "pin (7)-2.png",
       "scale" : "3x"
     }
   ],

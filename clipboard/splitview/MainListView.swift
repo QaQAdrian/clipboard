@@ -13,6 +13,8 @@ class MainListViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
     private var items: ClipboardItems = []
     @IBOutlet var pinBtn: NSButton!
+    private var previewController: PreviewController?
+    private var splitController: SplitViewController?
     
     private var pinned = UserDefaults.standard.bool(forKey: "pinned") {
         didSet {
@@ -33,7 +35,7 @@ class MainListViewController: NSViewController {
     }
 
     @IBAction func expandRightView(_ sender: NSButton) {
-        if let existParent = splitViewController() {
+        if let existParent = splitController {
             existParent.expand()
         }
     }
@@ -42,12 +44,7 @@ class MainListViewController: NSViewController {
         self.items.removeAll()
         tableView.reloadData()
     }
-    func splitViewController() -> SplitViewController? {
-        if let existParent = self.parent, existParent is SplitViewController {
-            return existParent as? SplitViewController
-        }
-        return nil
-    }
+    
 
     private let clipboard = ClipboardListener.shared;
 }
@@ -61,6 +58,8 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         NSLayoutConstraint.activate(constraints)
         tableView.delegate = self
         tableView.dataSource = self
+        splitController = splitViewController()
+        previewController = getPreviewController()
         clipboard.onNewCopy {
             if self.items.appendExcludeSame($0) {
                 DispatchQueue.main.async {
@@ -97,21 +96,6 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         }
     }
 
-    func getPreviewController() -> PreviewController? {
-        if let controller = splitViewController() {
-            if let preview = controller.children.last, preview is PreviewController {
-                return preview as? PreviewController
-            }
-        }
-        return nil
-    }
-
-    // 点击预览
-    private func preview(_ item: ClipboardOSX?) {
-        splitViewController()?.expandRightView()
-        getPreviewController()?.item = item
-    }
-
     private func loadListTextItemView() -> ListTextItem? {
         var itemView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ListTextItem"), owner: self) as? ListTextItem
         if itemView == nil {
@@ -140,5 +124,31 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
         return items.count 
+    }
+}
+
+extension MainListViewController {
+    // 点击预览
+    private func preview(_ item: ClipboardOSX?) {
+        if let controller = previewController, let split = splitController {
+            split.expandRightView()
+            controller.item = item
+        }
+    }
+    
+    func getPreviewController() -> PreviewController? {
+        if let controller = splitController {
+            if let preview = controller.children.last, preview is PreviewController {
+                return preview as? PreviewController
+            }
+        }
+        return nil
+    }
+    
+    func splitViewController() -> SplitViewController? {
+        if let existParent = self.parent, existParent is SplitViewController {
+            return existParent as? SplitViewController
+        }
+        return nil
     }
 }
