@@ -91,7 +91,6 @@ class ListTextItem: NSView {
                 switch unit {
                 case .hour: unitStr = "hour".localized
                 case .minute: unitStr = "minute".localized
-//                case .second: unitStr = "second".localized
                 case .second:
                     elapse?.stringValue = "just now".localized
                     return

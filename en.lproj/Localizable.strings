@@ -10,6 +10,7 @@
 "minute" = "minute";
 "second" = "second";
 "day" = "day";
-"ago" = "ago";
+"ago" = " ago";
 "s" = "s ";
 "just now" = "in one minute";
+"picture" = "picture";

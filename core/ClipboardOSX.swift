@@ -33,6 +33,11 @@ class ClipboardOSX: Clipboard {
         let date = Date()
         if let url = ClipboardOSX.saveImage(date: date, image: image) {
             super.init(type: CType.IMAGE, createDate: date, url: url)
+            let imageObj = NSImage(data: image)
+            if let (w, h) = imageObj?.size {
+                self.imageWidth = w
+                self.imageHeight = h
+            }
             return
         }
         return nil
@@ -75,7 +80,10 @@ class ClipboardOSX: Clipboard {
         case .STR: str = self.content
         case .FILE: str = self.url?.absoluteString
         case .HTML: str = self.content
-        case .IMAGE: str = self.url?.absoluteString
+        case .IMAGE:
+            if let w = self.imageWidth, let h = self.imageHeight {
+                str = "\("picture".localized): \(w) x \(h)"
+            }
         case .URL: str = self.url?.absoluteString
         }
         return str ?? ""

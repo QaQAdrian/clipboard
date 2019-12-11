@@ -46,12 +46,14 @@ class PreviewController: NSViewController {
     }
 
     @IBOutlet var imageView: NSImageView!
-    @IBOutlet var textView: NSTextField!
-
+//    @IBOutlet var textView: NSTextField!
+    @IBOutlet var textView: NSTextView!
+    @IBOutlet var textScrollView: NSScrollView!
+    
     var needImage = true {
         didSet {
             imageView.isHidden = !needImage
-            textView.isHidden = needImage
+            textScrollView.isHidden = needImage
         }
     }
     
@@ -83,8 +85,14 @@ class PreviewController: NSViewController {
         needImage = need
         if needImage {
             imageView.image = item?.showImage() ?? NSImage(named: "empty")
+            
+//            imageView.layer = imageView.layer ?? CALayer();
+//            imageView.layer?.contentsGravity = .resize;
+//            imageView.layer?.contents = item?.showImage() ?? NSImage(named: "empty");
+//            imageView.wantsLayer = true;
         } else {
-            textView.stringValue = item?.showContent() ?? ""
+            textView.string = item?.showContent() ?? ""
+//            textView.stringValue =
         }
     }
 }

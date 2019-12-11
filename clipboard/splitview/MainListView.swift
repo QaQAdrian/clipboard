@@ -136,7 +136,7 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         view.itemId = item.id
         view.item = item
         view.setImage(image: item.showImage())
-        view.setText(content: item.content)
+        view.setText(content: item.showContent())
         view.setElapse(createDate: item.createDate)
         return view
     }

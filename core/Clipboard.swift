@@ -24,6 +24,8 @@ class Clipboard {
     var content: String?
     var contentWithFormat: String?
     var url: URL?
+    var imageWidth: Int?
+    var imageHeight: Int?
 
     init(type: CType, createDate: Date, url: URL?) {
         self.id = UUID().uuidString
