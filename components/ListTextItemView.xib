@@ -18,7 +18,7 @@
                         <constraint firstAttribute="height" constant="28" id="NxH-t5-jqZ"/>
                         <constraint firstAttribute="width" constant="28" id="i8Y-fN-ysW"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="top" imageScaling="proportionallyUpOrDown" image="NSActionTemplate" id="WRN-bg-Wp8"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSActionTemplate" id="WRN-bg-Wp8"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1fW-AZ-2To" customClass="ClickTextField" customModule="clipboard" customModuleProvider="target">
                     <rect key="frame" x="41" y="38" width="247" height="34"/>
