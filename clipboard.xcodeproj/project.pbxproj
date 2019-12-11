@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CDD7CA7EE876D53DC053C86 /* ClipboardOSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD7375EE2396187A6AE33D /* ClipboardOSX.swift */; };
 		75167B562399FBD1004EF991 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75167B552399FBD1004EF991 /* DateUtils.swift */; };
+		75515E6323A0E07200A84695 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75515E6523A0E07200A84695 /* InfoPlist.strings */; };
 		756E2F94239E3BC300534C9A /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E2F93239E3BC300534C9A /* MainWindowController.swift */; };
 		756E2F96239E3FE400534C9A /* ListTextItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756E2F95239E3FE400534C9A /* ListTextItemView.xib */; };
 		756E2F99239E406100534C9A /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E2F98239E406100534C9A /* MainListView.swift */; };
@@ -47,6 +48,8 @@
 		1CDD7375EE2396187A6AE33D /* ClipboardOSX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardOSX.swift; sourceTree = "<group>"; };
 		75167B552399FBD1004EF991 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		75200CBE2398FBCB0092C89D /* WidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButton.swift; sourceTree = "<group>"; };
+		75515E6423A0E07200A84695 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		75515E6623A0E07300A84695 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		756E2F93239E3BC300534C9A /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		756E2F95239E3FE400534C9A /* ListTextItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTextItemView.xib; sourceTree = "<group>"; };
 		756E2F98239E406100534C9A /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		757894432394EF3C00B26DDF = {
 			isa = PBXGroup;
 			children = (
+				75515E6523A0E07200A84695 /* InfoPlist.strings */,
 				757450E3239CEFDE003EF2E0 /* Localizable.strings */,
 				757450D3239CE868003EF2E0 /* components */,
 				7578947B2394EF6900B26DDF /* core */,
@@ -289,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				757894542394EF4000B26DDF /* Assets.xcassets in Resources */,
+				75515E6323A0E07200A84695 /* InfoPlist.strings in Resources */,
 				757450E0239CEFDE003EF2E0 /* Localizable.strings in Resources */,
 				75B45F77239F66080045F635 /* StatusBarMenu.xib in Resources */,
 				759F9FAA239DFBB300357E2D /* FadeView.xib in Resources */,
@@ -325,6 +330,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		75515E6523A0E07200A84695 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75515E6423A0E07200A84695 /* en */,
+				75515E6623A0E07300A84695 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		757450E3239CEFDE003EF2E0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

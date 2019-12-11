@@ -31,7 +31,7 @@
                         <action selector="openWindow:" target="EnG-LA-AjY" id="FhB-8S-Igf"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Setting" id="oKD-MX-Hom">
+                <menuItem title="Setting" hidden="YES" id="oKD-MX-Hom">
                     <attributedString key="attributedTitle"/>
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>

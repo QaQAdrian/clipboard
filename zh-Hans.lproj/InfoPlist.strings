@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  clipboard
+
+  Created by wyy on 2019/12/11.
+  Copyright © 2019 yahaha. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "剪切板工具";

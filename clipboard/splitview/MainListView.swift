@@ -148,7 +148,7 @@ extension MainListViewController {
     }
     
     private func closePreview() {
-        if let controller = previewController, let split = splitController {
+        if let _ = previewController, let split = splitController {
             split.expandRight = false
         }
     }

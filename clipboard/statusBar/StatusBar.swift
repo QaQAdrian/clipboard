@@ -44,14 +44,19 @@ class Menu: NSMenu {
 }
 
 class StatusBar {
-    private lazy var menuIcon: NSStatusItem = {
-        let item = NSStatusBar.system.statusItem(withLength: 100)
-        item.title = "Clipboard"
-        return item
+    private lazy var menuIcon: NSStatusItem? = {
+        let flag = OSXUtils.isDarkMod()
+        if let image = flag ? NSImage(named: "clipboard") : NSImage(named: "clipboardBlack") {
+            let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+            image.size = NSMakeSize(18.0, 18.0);
+            item.image = image
+            return item
+        }
+       return nil
     }()
 
     init(_ menu: Menu) {
-        self.menuIcon.menu = menu
+        self.menuIcon?.menu = menu
     }
     
 }
