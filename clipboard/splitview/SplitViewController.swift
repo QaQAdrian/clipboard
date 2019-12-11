@@ -20,7 +20,7 @@ class SplitViewController: NSSplitViewController {
         }
     }
     
-    private var expandRight: Bool = false {
+    var expandRight: Bool = false {
         didSet {
             UserDefaults.standard.set(expandRight, forKey: "expandRight")
             if self.expandRight {
@@ -35,14 +35,14 @@ class SplitViewController: NSSplitViewController {
         expandRight = !expandRight
     }
     
-    func expandRightView(){
+    private func expandRightView(){
         let rightView = self.splitView.subviews[1]
         rightView.isHidden = false
         //重新刷新显示
         self.splitView.display()
     }
     
-    func collapsedRightView(){
+    private  func collapsedRightView(){
         let rightView = self.splitView.subviews[1]
         rightView.isHidden = true
         self.splitView.display()

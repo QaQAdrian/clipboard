@@ -34,7 +34,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ohL-TQ-LhT" customClass="ClickTextField" customModule="clipboard" customModuleProvider="target">
                     <rect key="frame" x="41" y="8" width="48" height="14"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="3 小时前" id="ur9-tN-6Vv">
-                        <font key="font" metaFont="message" size="11"/>
+                        <font key="font" metaFont="menu" size="11"/>
                         <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -87,6 +87,7 @@
             <connections>
                 <outlet property="elapse" destination="ohL-TQ-LhT" id="1ai-7J-CqD"/>
                 <outlet property="image" destination="pxS-47-rAf" id="d8o-sL-npe"/>
+                <outlet property="previewBtn" destination="scO-1a-TdE" id="oUX-Sc-yWd"/>
                 <outlet property="text" destination="1fW-AZ-2To" id="xLf-Oe-ff6"/>
             </connections>
             <point key="canvasLocation" x="116" y="243.5"/>

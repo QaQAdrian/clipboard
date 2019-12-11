@@ -23,12 +23,14 @@ class ListTextItem: NSView {
     }
     @IBOutlet var image: NSImageView!
 
+    @IBOutlet var previewBtn: NSButton!
     private var checkMarkView: FadeView?
 
     var itemId: String?
     var item: ClipboardOSX?
     var click: ((ClipboardOSX?, ListTextItem) -> Void)?
     var preview: ((ClipboardOSX?) -> Void)?
+    var closePreview: (() -> Void)?
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -40,12 +42,23 @@ class ListTextItem: NSView {
         wantsLayer = true
     }
 
+    private var previewIcon = false {
+        didSet {
+            if previewIcon {
+                if let hook = preview {
+                    hook(item)
+                }
+            } else {
+                if let hook = closePreview {
+                    hook()
+                }
+            }
+        }
+    }
     // MARK: event
 
     @IBAction func preview(_ sender: NSButton) {
-        if let hook = preview {
-            hook(item)
-        }
+        previewIcon = !previewIcon
     }
 
     override func mouseDown(with event: NSEvent) {

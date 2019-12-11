@@ -124,6 +124,7 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         let item = items[row]
         view.click = clickHook
         view.preview = preview
+        view.closePreview = closePreview
         view.itemId = item.id
         view.item = item
         view.setImage(image: item.showImage())
@@ -141,8 +142,14 @@ extension MainListViewController {
     // 点击预览
     private func preview(_ item: ClipboardOSX?) {
         if let controller = previewController, let split = splitController {
-            split.expandRightView()
+            split.expandRight = true
             controller.item = item
+        }
+    }
+    
+    private func closePreview() {
+        if let controller = previewController, let split = splitController {
+            split.expandRight = false
         }
     }
 
