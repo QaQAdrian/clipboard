@@ -7,12 +7,13 @@ import Foundation
 import AppKit
 
 class ClipboardOSX: Clipboard {
-    private static let ImageURL: URL? = {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    public static let ImageURL: URL? = {
+        let urls = FileManager.default.urls(for: FileManager.SearchPathDirectory.cachesDirectory, in: .userDomainMask)
         if urls.count < 0 {
             print("document dir is not exists")
             return nil
         }
+        print("image cache \(urls[0].absoluteString)")
         return urls[0]
     }()
 

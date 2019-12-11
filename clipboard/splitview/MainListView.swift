@@ -43,6 +43,7 @@ class MainListViewController: NSViewController {
     @IBAction func clearUp(_ sender: Any) {
         self.items.removeAll()
         tableView.reloadData()
+        AppDelegate.clearCache()
     }
     
 

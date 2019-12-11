@@ -40,4 +40,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AppDelegate.openMainWindow()
         return true
     }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        AppDelegate.clearCache()
+    }
+    
+    static func clearCache() {
+        let cachPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+        let files = FileManager.default.subpaths(atPath: cachPath as String)
+        for p in files! {
+          let path = cachPath.appendingPathComponent(p)
+          if FileManager.default.fileExists(atPath: path) {
+              do {
+                  try FileManager.default.removeItem(atPath: path)
+              } catch {
+                  print("error:\(error)")
+              }
+          }
+        }
+    }
 }
