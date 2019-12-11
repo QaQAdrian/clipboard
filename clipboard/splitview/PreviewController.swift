@@ -47,7 +47,12 @@ class PreviewController: NSViewController {
 
     @IBOutlet var imageView: NSImageView!
 //    @IBOutlet var textView: NSTextField!
-    @IBOutlet var textView: NSTextView!
+    @IBOutlet var textView: NSTextView! {
+        didSet {
+            
+            self.textView.font = NSFont.systemFont(ofSize: 14)
+        }
+    }
     @IBOutlet var textScrollView: NSScrollView!
     
     var needImage = true {
@@ -85,14 +90,8 @@ class PreviewController: NSViewController {
         needImage = need
         if needImage {
             imageView.image = item?.showImage() ?? NSImage(named: "empty")
-            
-//            imageView.layer = imageView.layer ?? CALayer();
-//            imageView.layer?.contentsGravity = .resize;
-//            imageView.layer?.contents = item?.showImage() ?? NSImage(named: "empty");
-//            imageView.wantsLayer = true;
         } else {
             textView.string = item?.showContent() ?? ""
-//            textView.stringValue =
         }
     }
 }

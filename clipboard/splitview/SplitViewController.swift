@@ -20,7 +20,7 @@ class SplitViewController: NSSplitViewController {
         }
     }
     
-    private var expandRight: Bool = false{
+    private var expandRight: Bool = false {
         didSet {
             UserDefaults.standard.set(expandRight, forKey: "expandRight")
             if self.expandRight {
