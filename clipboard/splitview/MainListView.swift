@@ -12,23 +12,20 @@ import Foundation
 class MainListViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
     private var items: ClipboardItems = []
-    @IBOutlet var pinBtn: NSButton! {
-        didSet {
-            checkPinBtn()
-        }
-    }
+    @IBOutlet var pinBtn: NSButton!
     
-    private var pinned = true {
+    private var pinned = UserDefaults.standard.bool(forKey: "pinned") {
         didSet {
             checkPinBtn()
+            UserDefaults.standard.set(self.pinned, forKey: "pinned")
         }
     }
     
     func checkPinBtn() {
         if pinBtn != nil {
             pinBtn.image = self.pinned ? NSImage(named: "pin") : NSImage(named: "unpin")
-            self.view.window?.level = self.pinned ? .floating: .normal;
         }
+        self.view.window?.level = self.pinned ? .floating: .normal;
     }
     
     @IBAction func pin(_ sender: Any) {
