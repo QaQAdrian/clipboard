@@ -26,6 +26,7 @@ class Clipboard {
     var url: URL?
     var imageWidth: Int?
     var imageHeight: Int?
+    var data: Data?
 
     init(type: CType, createDate: Date, url: URL?) {
         self.id = UUID().uuidString
@@ -67,6 +68,9 @@ class Clipboard {
             return true
         }
         if self.url != nil && self.url == other.url {
+            return true
+        }
+        if self.data != nil && self.data == other.data {
             return true
         }
         return false

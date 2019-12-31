@@ -137,7 +137,6 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         view.setText(content: item.showContent())
         view.setElapse(createDate: item.createDate)
         if let select = selected {
-            print(select)
             if select != item.id {
                 view.removeCheckMarkView()
             }

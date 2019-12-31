@@ -34,6 +34,7 @@ class ClipboardOSX: Clipboard {
         let date = Date()
         if let url = ClipboardOSX.saveImage(date: date, image: image) {
             super.init(type: CType.IMAGE, createDate: date, url: url)
+            self.data = image
             if let imageObj = NSImage(data: image) {
                 self.imageWidth = Int(imageObj.size.width)
                 self.imageHeight = Int(imageObj.size.height)
@@ -43,12 +44,20 @@ class ClipboardOSX: Clipboard {
         return nil
     }
 
-    init(content: String, html: String?) {
-        super.init(content: content, contentWithFormat: html, type: CType.HTML)
+    init?(content: String, html: String?) {
+        if !content.isEmpty {
+            super.init(content: content, contentWithFormat: html, type: CType.HTML)
+            return
+        }
+        return nil
     }
 
-    init(content: String) {
-        super.init(content: content, type: CType.STR)
+    init?(content: String) {
+        if !content.isEmpty {
+            super.init(content: content, type: CType.STR)
+            return
+        }
+        return nil
     }
 
     init(fileUrl: URL) {

@@ -150,7 +150,7 @@
                                             <tableColumns>
                                                 <tableColumn width="317" minWidth="40" maxWidth="1000" id="0WV-J4-58y">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -206,10 +206,10 @@
                                 <rect key="frame" x="0.0" y="465" width="320" height="35"/>
                                 <subviews>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="Ww2-bQ-es9">
-                                        <rect key="frame" x="10" y="3" width="22" height="30"/>
+                                        <rect key="frame" x="10" y="9" width="22" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="5OY-qR-1zt"/>
-                                            <constraint firstAttribute="height" constant="30" id="ZhM-dz-LAr"/>
+                                            <constraint firstAttribute="height" constant="18" id="ZhM-dz-LAr"/>
                                         </constraints>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="clearAll" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="I3X-yk-v05">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -230,10 +230,10 @@
                                         </connections>
                                     </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="isq-iJ-sLj">
-                                        <rect key="frame" x="249" y="3" width="22" height="30"/>
+                                        <rect key="frame" x="249" y="9" width="22" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="22" id="TkC-4G-3Ll"/>
-                                            <constraint firstAttribute="height" constant="30" id="qeo-Ty-7Ze"/>
+                                            <constraint firstAttribute="height" constant="18" id="qeo-Ty-7Ze"/>
                                         </constraints>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pin" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="EeM-y5-zdH">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -258,9 +258,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lwo-A1-BVP">
-                                        <rect key="frame" x="96" y="133" width="128" height="200"/>
+                                        <rect key="frame" x="128" y="133" width="64" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="128" id="aVw-rZ-Z19"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="64" id="aVw-rZ-Z19"/>
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="empty" id="vH9-Tj-9RE"/>
                                     </imageView>

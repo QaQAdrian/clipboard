@@ -119,12 +119,12 @@ class ClipboardListener {
             break
         case PasteType.html:
             let format = data.flatMap({ d in String(data: d, encoding: .utf8) })
-            clipboard = content.map {
+            clipboard = content.flatMap {
                 ClipboardOSX(content: $0, html: format ?? $0)
             }
             break
         case PasteType.string:
-            clipboard = content.map {
+            clipboard = content.flatMap {
                 ClipboardOSX(content: $0)
             }
             break
