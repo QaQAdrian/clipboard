@@ -24,7 +24,7 @@ class ListTextItem: NSView {
     @IBOutlet var image: NSImageView!
 
     @IBOutlet var previewBtn: NSButton!
-    private var checkMarkView: FadeView?
+    private var checkMarkView: FadeView? = FadeView.createFromNib("FadeView")
 
     var itemId: String?
     var item: ClipboardOSX?
@@ -40,6 +40,11 @@ class ListTextItem: NSView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         wantsLayer = true
+    }
+    
+    // 改变鼠标指针
+    override func resetCursorRects() {
+        self.addCursorRect(self.bounds, cursor: NSCursor.pointingHand)
     }
 
     private var previewIcon = false {
@@ -71,10 +76,16 @@ class ListTextItem: NSView {
     }
 
     func showCheckMark() {
-        checkMarkView = FadeView.createFromNib("FadeView")
+//        checkMarkView = FadeView.createFromNib("FadeView")
         if let exists = checkMarkView {
             addSubview(exists)
             checkMarkView?.start()
+        }
+    }
+    
+    func removeCheckMarkView() {
+        if let checkMark = checkMarkView {
+            checkMark.removeFromSuperview()
         }
     }
 

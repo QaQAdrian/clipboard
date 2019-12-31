@@ -29,6 +29,7 @@ class MainListViewController: NSViewController {
     @IBOutlet var emptyView: NSView!
     private var previewController: PreviewController?
     private var splitController: SplitViewController?
+    private var selected: String?
 
     private var pinned = UserDefaults.standard.bool(forKey: "pinned") {
         didSet {
@@ -65,7 +66,7 @@ class MainListViewController: NSViewController {
 
 extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
     override func viewDidLoad() {
-        checkPinBtn()
+//        checkPinBtn() 这里没用
         let constraints = [
             self.view.widthAnchor.constraint(equalToConstant: 320),
         ]
@@ -84,6 +85,10 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         })
         tableView.reloadData()
     }
+    
+    override func viewDidAppear() {
+        checkPinBtn()
+    }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         let view = loadListTextItemView()
@@ -100,8 +105,9 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     // 点击cell
     private func clickHook(_ item: ClipboardOSX?, _ view: ListTextItem) {
-        if let selected = item {
-            selected.copy()
+        if let curSelected = item {
+            selected = curSelected.id
+            curSelected.copy()
             view.showCheckMark()
         }
     }
@@ -130,6 +136,12 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         view.setImage(image: item.showImage())
         view.setText(content: item.showContent())
         view.setElapse(createDate: item.createDate)
+        if let select = selected {
+            print(select)
+            if select != item.id {
+                view.removeCheckMarkView()
+            }
+        }
         return view
     }
 
