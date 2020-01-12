@@ -24,9 +24,9 @@ class ListTextItem: NSView {
     @IBOutlet var image: NSImageView!
 
     @IBOutlet var previewBtn: NSButton!
-    private var checkMarkView: FadeView? = FadeView.createFromNib("FadeView")
 
     var itemId: String?
+    var tableView: NSTableView?
     var item: ClipboardOSX?
     var click: ((ClipboardOSX?, ListTextItem) -> Void)?
     var preview: ((ClipboardOSX?) -> Void)?
@@ -74,24 +74,7 @@ class ListTextItem: NSView {
             hook(item, self)
         }
     }
-
-    func showCheckMark() {
-//        checkMarkView = FadeView.createFromNib("FadeView")
-        if let exists = checkMarkView {
-            addSubview(exists)
-            checkMarkView?.start()
-        }
-    }
     
-    func removeCheckMarkView() {
-        if let checkMark = checkMarkView {
-            checkMark.removeFromSuperview()
-        }
-    }
-
-    override func awakeFromNib() {
-        
-    }
     // MARK: setter
 
     func setImage(image: NSImage?) {

@@ -135,6 +135,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6es-76-Vea" customClass="Notice" customModule="clipboard" customModuleProvider="target">
+                                <rect key="frame" x="115" y="470" width="90" height="25"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vJW-un-J4Z">
+                                        <rect key="frame" x="33" y="4" width="52" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="17" id="NpG-q6-n5O"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Copied!" id="M9G-Mf-FmY">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fw5-9Z-5eq">
+                                        <rect key="frame" x="5" y="3" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Io7-rM-Fac"/>
+                                            <constraint firstAttribute="height" constant="20" id="PjZ-Kn-lmz"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="check-mark" id="zcq-Ha-Wvc"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vJW-un-J4Z" secondAttribute="trailing" constant="5" id="93v-ow-ZrV"/>
+                                    <constraint firstItem="vJW-un-J4Z" firstAttribute="centerY" secondItem="6es-76-Vea" secondAttribute="centerY" id="9cl-6g-5sx"/>
+                                    <constraint firstAttribute="width" constant="90" id="M1F-ri-7D1"/>
+                                    <constraint firstItem="fw5-9Z-5eq" firstAttribute="centerY" secondItem="6es-76-Vea" secondAttribute="centerY" id="Sp2-Wo-Flz"/>
+                                    <constraint firstItem="fw5-9Z-5eq" firstAttribute="leading" secondItem="6es-76-Vea" secondAttribute="leading" constant="5" id="UTe-d7-ZYV"/>
+                                    <constraint firstAttribute="height" constant="25" id="Z6i-u5-juN"/>
+                                    <constraint firstItem="vJW-un-J4Z" firstAttribute="leading" secondItem="fw5-9Z-5eq" secondAttribute="trailing" constant="10" id="lcW-DM-mII"/>
+                                </constraints>
+                            </customView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaM-gi-HAF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="zaY-rA-JjE">
@@ -150,7 +183,7 @@
                                             <tableColumns>
                                                 <tableColumn width="317" minWidth="40" maxWidth="1000" id="0WV-J4-58y">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -285,6 +318,8 @@
                             <constraint firstAttribute="trailing" secondItem="NaM-gi-HAF" secondAttribute="trailing" id="QLd-Pz-xRg"/>
                             <constraint firstItem="D1K-u2-9dA" firstAttribute="centerX" secondItem="iCv-hW-qs7" secondAttribute="centerX" id="RcE-PO-cPo"/>
                             <constraint firstAttribute="bottom" secondItem="c5w-Bu-WTt" secondAttribute="bottom" id="cIV-KO-xWI"/>
+                            <constraint firstItem="6es-76-Vea" firstAttribute="centerX" secondItem="iCv-hW-qs7" secondAttribute="centerX" id="ehT-gp-PDY"/>
+                            <constraint firstItem="6es-76-Vea" firstAttribute="top" secondItem="iCv-hW-qs7" secondAttribute="top" constant="5" id="fal-u4-p6L"/>
                             <constraint firstItem="NaM-gi-HAF" firstAttribute="top" secondItem="D1K-u2-9dA" secondAttribute="bottom" id="l47-Es-5FW"/>
                             <constraint firstItem="NaM-gi-HAF" firstAttribute="centerX" secondItem="iCv-hW-qs7" secondAttribute="centerX" id="owY-CY-0df"/>
                             <constraint firstItem="D1K-u2-9dA" firstAttribute="leading" secondItem="iCv-hW-qs7" secondAttribute="leading" id="sRx-4V-ZAb"/>
@@ -293,6 +328,7 @@
                     </view>
                     <connections>
                         <outlet property="emptyView" destination="c5w-Bu-WTt" id="XDh-n1-f0T"/>
+                        <outlet property="noticeView" destination="6es-76-Vea" id="YgW-q6-LxT"/>
                         <outlet property="pinBtn" destination="isq-iJ-sLj" id="Pas-8a-tjb"/>
                         <outlet property="scrollList" destination="NaM-gi-HAF" id="f5f-Gf-c1w"/>
                         <outlet property="tableView" destination="2l6-2B-uXW" id="VJX-d6-t1T"/>
@@ -407,7 +443,8 @@
     </scenes>
     <resources>
         <image name="NSTouchBarSidebarTemplate" width="22" height="30"/>
-        <image name="clearAll" width="100" height="100"/>
+        <image name="check-mark" width="100" height="100"/>
+        <image name="clearAll" width="64" height="64"/>
         <image name="empty" width="100" height="100"/>
         <image name="pin" width="100" height="100"/>
     </resources>

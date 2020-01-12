@@ -27,6 +27,8 @@ class MainListViewController: NSViewController {
 
     @IBOutlet var pinBtn: NSButton!
     @IBOutlet var emptyView: NSView!
+    @IBOutlet var noticeView: Notice!
+
     private var previewController: PreviewController?
     private var splitController: SplitViewController?
     private var selected: String?
@@ -58,7 +60,7 @@ class MainListViewController: NSViewController {
     @IBAction func clearUp(_ sender: Any) {
         items.removeAll()
         AppDelegate.clearCache()
-        self.previewController?.item = nil
+        previewController?.item = nil
     }
 
     private let clipboard = ClipboardListener.shared
@@ -85,13 +87,14 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         })
         tableView.reloadData()
     }
-    
+
     override func viewDidAppear() {
         checkPinBtn()
     }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         let view = loadListTextItemView()
+        view?.tableView = self.tableView
         return view?.frame.height ?? 70
     }
 
@@ -105,11 +108,6 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 
     // 点击cell
     private func clickHook(_ item: ClipboardOSX?, _ view: ListTextItem) {
-        if let curSelected = item {
-            selected = curSelected.id
-            curSelected.copy()
-            view.showCheckMark()
-        }
     }
 
     private func loadListTextItemView() -> ListTextItem? {
@@ -128,19 +126,19 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
             return nil
         }
         let item = items[row]
-        view.click = clickHook
+        view.click = { (_ item: ClipboardOSX?, _: ListTextItem) -> Void in
+            if let curSelected = item {
+                self.selected = curSelected.id
+                curSelected.copy()
+                self.noticeView.start()
+            }
+        }
         view.preview = preview
-        view.closePreview = closePreview
         view.itemId = item.id
         view.item = item
         view.setImage(image: item.showImage())
         view.setText(content: item.showContent())
         view.setElapse(createDate: item.createDate)
-        if let select = selected {
-            if select != item.id {
-                view.removeCheckMarkView()
-            }
-        }
         return view
     }
 
@@ -152,16 +150,13 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 extension MainListViewController {
     // 点击预览
     private func preview(_ item: ClipboardOSX?) {
+//        if item.showType == .STR {
+//            
+//        }
         if let controller = previewController, let split = splitController {
             split.expandRight = true
             controller.item = item
         }
-    }
-    
-    private func closePreview() {
-//        if let _ = previewController, let split = splitController {
-//            split.expandRight = false
-//        }
     }
 
     func getPreviewController() -> PreviewController? {

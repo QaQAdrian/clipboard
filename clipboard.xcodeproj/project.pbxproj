@@ -22,10 +22,11 @@
 		7578947D2394EF7F00B26DDF /* ClipboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578947C2394EF7F00B26DDF /* ClipboardListener.swift */; };
 		757894812394F63B00B26DDF /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894802394F63B00B26DDF /* Clipboard.swift */; };
 		758CB487239F45F00067A970 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758CB486239F45F00067A970 /* StatusBar.swift */; };
-		759F9F91239D44C400357E2D /* FadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757450D0239CE7F6003EF2E0 /* FadeView.swift */; };
-		759F9FAA239DFBB300357E2D /* FadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759F9FA9239DFBB300357E2D /* FadeView.xib */; };
 		759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FAC239E104300357E2D /* NSViewUtils.swift */; };
+		75ADF01B23CB137900B2F7AD /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ADF01A23CB137900B2F7AD /* Preview.swift */; };
 		75B45F77239F66080045F635 /* StatusBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75B45F79239F66080045F635 /* StatusBarMenu.xib */; };
+		75D9D1C723C88BCC00032AEC /* Notice.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D9D1C623C88BCC00032AEC /* Notice.xib */; };
+		75D9D1C923C88FEA00032AEC /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9D1C823C88FEA00032AEC /* Notice.swift */; };
 		75FC5626239E4D4300635EE5 /* GrideTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC5625239E4D4300635EE5 /* GrideTable.swift */; };
 		75FC5629239E5E8200635EE5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC5628239E5E8200635EE5 /* SplitViewController.swift */; };
 		75FC562C239E7E9600635EE5 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC562B239E7E9600635EE5 /* PreviewController.swift */; };
@@ -53,7 +54,6 @@
 		756E2F93239E3BC300534C9A /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		756E2F95239E3FE400534C9A /* ListTextItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTextItemView.xib; sourceTree = "<group>"; };
 		756E2F98239E406100534C9A /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
-		757450D0239CE7F6003EF2E0 /* FadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeView.swift; sourceTree = "<group>"; };
 		757450D5239CE8DD003EF2E0 /* ListTextItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTextItem.swift; sourceTree = "<group>"; };
 		757450DA239CEF13003EF2E0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		757450DB239CEF13003EF2E0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TodayViewController.strings"; sourceTree = "<group>"; };
@@ -71,8 +71,8 @@
 		757894802394F63B00B26DDF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		757894882397514200B26DDF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		758CB486239F45F00067A970 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
-		759F9FA9239DFBB300357E2D /* FadeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FadeView.xib; sourceTree = "<group>"; };
 		759F9FAC239E104300357E2D /* NSViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewUtils.swift; sourceTree = "<group>"; };
+		75ADF01A23CB137900B2F7AD /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		75B45F78239F66080045F635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatusBarMenu.xib; sourceTree = "<group>"; };
 		75B45F7B239F660D0045F635 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StatusBarMenu.strings; sourceTree = "<group>"; };
 		75B45F7D239F66160045F635 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/StatusBarMenu.strings"; sourceTree = "<group>"; };
@@ -81,6 +81,8 @@
 		75C6DEE62398B175009B1F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75C6DEE82398B175009B1F1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		75C6DEEA2398B175009B1F1E /* widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widget.entitlements; sourceTree = "<group>"; };
+		75D9D1C623C88BCC00032AEC /* Notice.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Notice.xib; sourceTree = "<group>"; };
+		75D9D1C823C88FEA00032AEC /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		75FC5625239E4D4300635EE5 /* GrideTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrideTable.swift; sourceTree = "<group>"; };
 		75FC5628239E5E8200635EE5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		75FC562B239E7E9600635EE5 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				756E2F98239E406100534C9A /* MainListView.swift */,
 				75FC5628239E5E8200635EE5 /* SplitViewController.swift */,
 				75FC562B239E7E9600635EE5 /* PreviewController.swift */,
+				75ADF01A23CB137900B2F7AD /* Preview.swift */,
 			);
 			path = splitview;
 			sourceTree = "<group>";
@@ -129,10 +132,9 @@
 		757450D3239CE868003EF2E0 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				759F9FA1239DED5000357E2D /* controllers */,
 				757450D4239CE890003EF2E0 /* views */,
-				759F9FA9239DFBB300357E2D /* FadeView.xib */,
 				756E2F95239E3FE400534C9A /* ListTextItemView.xib */,
+				75D9D1C623C88BCC00032AEC /* Notice.xib */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -140,9 +142,9 @@
 		757450D4239CE890003EF2E0 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				757450D0239CE7F6003EF2E0 /* FadeView.swift */,
 				757450D5239CE8DD003EF2E0 /* ListTextItem.swift */,
 				75FC5625239E4D4300635EE5 /* GrideTable.swift */,
+				75D9D1C823C88FEA00032AEC /* Notice.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -210,13 +212,6 @@
 				75B45F79239F66080045F635 /* StatusBarMenu.xib */,
 			);
 			path = statusBar;
-			sourceTree = "<group>";
-		};
-		759F9FA1239DED5000357E2D /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controllers;
 			sourceTree = "<group>";
 		};
 		75C6DEE02398B175009B1F1E /* widget */ = {
@@ -296,7 +291,7 @@
 				75515E6323A0E07200A84695 /* InfoPlist.strings in Resources */,
 				757450E0239CEFDE003EF2E0 /* Localizable.strings in Resources */,
 				75B45F77239F66080045F635 /* StatusBarMenu.xib in Resources */,
-				759F9FAA239DFBB300357E2D /* FadeView.xib in Resources */,
+				75D9D1C723C88BCC00032AEC /* Notice.xib in Resources */,
 				757894572394EF4000B26DDF /* Main.storyboard in Resources */,
 				756E2F96239E3FE400534C9A /* ListTextItemView.xib in Resources */,
 			);
@@ -311,14 +306,15 @@
 			files = (
 				758CB487239F45F00067A970 /* StatusBar.swift in Sources */,
 				75FC5626239E4D4300635EE5 /* GrideTable.swift in Sources */,
-				759F9F91239D44C400357E2D /* FadeView.swift in Sources */,
 				759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */,
 				75FC562C239E7E9600635EE5 /* PreviewController.swift in Sources */,
 				756E2F94239E3BC300534C9A /* MainWindowController.swift in Sources */,
 				75167B562399FBD1004EF991 /* DateUtils.swift in Sources */,
 				7578947D2394EF7F00B26DDF /* ClipboardListener.swift in Sources */,
 				757894812394F63B00B26DDF /* Clipboard.swift in Sources */,
+				75D9D1C923C88FEA00032AEC /* Notice.swift in Sources */,
 				757894502394EF3C00B26DDF /* AppDelegate.swift in Sources */,
+				75ADF01B23CB137900B2F7AD /* Preview.swift in Sources */,
 				757450F0239D30E6003EF2E0 /* ListTextItem.swift in Sources */,
 				1CDD7CA7EE876D53DC053C86 /* ClipboardOSX.swift in Sources */,
 				756E2F99239E406100534C9A /* MainListView.swift in Sources */,

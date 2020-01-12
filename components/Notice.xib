@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="Notice" customModule="clipboard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="113" height="37"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cD5-pe-IV0">
+                    <rect key="frame" x="43" y="10" width="52" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="zVc-Sg-EHx"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Copied!" id="QKC-Eh-dfm">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UTP-lQ-yjM">
+                    <rect key="frame" x="15" y="9" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="MwY-Cd-bDg"/>
+                        <constraint firstAttribute="height" constant="20" id="ztB-AJ-k4f"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="check-mark" id="ilg-cS-ISV"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="UTP-lQ-yjM" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="15" id="1aj-RK-suC"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cD5-pe-IV0" secondAttribute="trailing" constant="15" id="BiN-pu-iDM"/>
+                <constraint firstItem="cD5-pe-IV0" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="GLF-Fg-7VG"/>
+                <constraint firstItem="cD5-pe-IV0" firstAttribute="leading" secondItem="UTP-lQ-yjM" secondAttribute="trailing" constant="10" id="N35-hL-Dh0"/>
+                <constraint firstItem="UTP-lQ-yjM" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="pNg-NV-Osj"/>
+            </constraints>
+            <point key="canvasLocation" x="80.5" y="36.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="check-mark" width="100" height="100"/>
+    </resources>
+</document>
