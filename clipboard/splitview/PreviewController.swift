@@ -10,9 +10,12 @@ import AppKit
 import Foundation
 
 class PreviewController: NSViewController {
+    @IBOutlet var headView: NSView!
     var item: ClipboardOSX? {
         didSet {
-            refresh()
+            if self.imageView != nil {
+                refresh()
+            }
         }
     }
 
@@ -46,25 +49,29 @@ class PreviewController: NSViewController {
     }
 
     @IBOutlet var imageView: NSImageView!
-//    @IBOutlet var textView: NSTextField!
+
     @IBOutlet var textView: NSTextView! {
         didSet {
-            self.textView.font = NSFont.systemFont(ofSize: 14)
+            textView.font = NSFont.systemFont(ofSize: 14)
         }
     }
+
     @IBOutlet var textScrollView: NSScrollView!
-    
+
     var needImage = true {
         didSet {
-            if let imageView = self.imageView, let textScrollView = self.textScrollView {
+            if let imageView = self.imageView,
+                let textScrollView = self.textScrollView,
+                let headView = self.headView {
                 imageView.isHidden = !needImage
                 textScrollView.isHidden = needImage
+                headView.isHidden = !needImage
             }
         }
     }
-    
+
     func checkBtnStatus() {
-        if self.item == nil {
+        if item == nil {
             openBtn?.isHidden = true
             copyBtn?.isHidden = true
             return
@@ -73,10 +80,10 @@ class PreviewController: NSViewController {
             copyBtn?.isHidden = false
             openBtn?.isHidden = existItem.showType == .STR
         }
-        //TODO: 暂时不要拷贝
+        // TODO: 暂时不要拷贝
         copyBtn?.isHidden = true
     }
-    
+
     func refresh() {
         checkBtnStatus()
         var need = true

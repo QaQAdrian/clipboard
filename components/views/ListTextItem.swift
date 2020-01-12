@@ -68,7 +68,6 @@ class ListTextItem: NSView {
     
     private func getPreviewController() -> PreviewController? {
         let controller = storyboard?.instantiateController(withIdentifier: "PreviewController") as? PreviewController
-        print(controller?.view == nil)
         return controller
     }
 

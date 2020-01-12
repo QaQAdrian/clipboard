@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
@@ -17,7 +17,7 @@
                         <action selector="start:" target="EnG-LA-AjY" id="jaT-cc-x12"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Stop" id="anw-He-5Dl">
+                <menuItem title="Stop" hidden="YES" id="anw-He-5Dl">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="stop:" target="EnG-LA-AjY" id="3Xi-hc-P5q"/>
