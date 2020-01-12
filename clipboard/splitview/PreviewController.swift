@@ -40,7 +40,7 @@ class PreviewController: NSViewController {
 
     @IBOutlet var previewView: NSView!
     override func viewDidLoad() {
-        let constraints = [self.view.widthAnchor.constraint(greaterThanOrEqualToConstant: 450)]
+        let constraints = [self.view.widthAnchor.constraint(greaterThanOrEqualToConstant: 350)]
         NSLayoutConstraint.activate(constraints)
         refresh()
     }
@@ -49,7 +49,6 @@ class PreviewController: NSViewController {
 //    @IBOutlet var textView: NSTextField!
     @IBOutlet var textView: NSTextView! {
         didSet {
-            
             self.textView.font = NSFont.systemFont(ofSize: 14)
         }
     }
@@ -57,8 +56,10 @@ class PreviewController: NSViewController {
     
     var needImage = true {
         didSet {
-            imageView.isHidden = !needImage
-            textScrollView.isHidden = needImage
+            if let imageView = self.imageView, let textScrollView = self.textScrollView {
+                imageView.isHidden = !needImage
+                textScrollView.isHidden = needImage
+            }
         }
     }
     

@@ -12,39 +12,11 @@ import AppKit
 class SplitViewController: NSSplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        expandRight = UserDefaults.standard.bool(forKey: "expandRight")
-        if self.expandRight {
-            expandRightView()
-        } else {
-            collapsedRightView()
-        }
-    }
-    
-    var expandRight: Bool = false {
-        didSet {
-            UserDefaults.standard.set(expandRight, forKey: "expandRight")
-            if self.expandRight {
-                expandRightView()
-            } else {
-                collapsedRightView()
-            }
-        }
-    }
-    
-    func expand() {
-        expandRight = !expandRight
-    }
-    
-    private func expandRightView(){
-        let rightView = self.splitView.subviews[1]
-        rightView.isHidden = false
-        //重新刷新显示
-        self.splitView.display()
-    }
-    
-    private  func collapsedRightView(){
-        let rightView = self.splitView.subviews[1]
-        rightView.isHidden = true
-        self.splitView.display()
+//        expandRight = UserDefaults.standard.bool(forKey: "expandRight")
+//        if self.expandRight {
+//            expandRightView()
+//        } else {
+//            collapsedRightView()
+//        }
     }
 }

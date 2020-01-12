@@ -28,8 +28,7 @@ class MainListViewController: NSViewController {
     @IBOutlet var pinBtn: NSButton!
     @IBOutlet var emptyView: NSView!
     @IBOutlet var noticeView: Notice!
-
-    private var previewController: PreviewController?
+    
     private var splitController: SplitViewController?
     private var selected: String?
 
@@ -51,16 +50,9 @@ class MainListViewController: NSViewController {
         pinned = !pinned
     }
 
-    @IBAction func expandRightView(_ sender: NSButton) {
-        if let existParent = splitController {
-            existParent.expand()
-        }
-    }
-
     @IBAction func clearUp(_ sender: Any) {
         items.removeAll()
         AppDelegate.clearCache()
-        previewController?.item = nil
     }
 
     private let clipboard = ClipboardListener.shared
@@ -76,7 +68,6 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         splitController = splitViewController()
-        previewController = getPreviewController()
         clipboard.onNewCopy {
             _ = self.items.appendExcludeSame($0)
         }
@@ -133,9 +124,9 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
                 self.noticeView.start()
             }
         }
-        view.preview = preview
         view.itemId = item.id
         view.item = item
+        view.storyboard = storyboard
         view.setImage(image: item.showImage())
         view.setText(content: item.showContent())
         view.setElapse(createDate: item.createDate)
@@ -148,26 +139,6 @@ extension MainListViewController: NSTableViewDelegate, NSTableViewDataSource {
 }
 
 extension MainListViewController {
-    // 点击预览
-    private func preview(_ item: ClipboardOSX?) {
-//        if item.showType == .STR {
-//            
-//        }
-        if let controller = previewController, let split = splitController {
-            split.expandRight = true
-            controller.item = item
-        }
-    }
-
-    func getPreviewController() -> PreviewController? {
-        if let controller = splitController {
-            if let preview = controller.children.last, preview is PreviewController {
-                return preview as? PreviewController
-            }
-        }
-        return nil
-    }
-
     func splitViewController() -> SplitViewController? {
         if let existParent = self.parent, existParent is SplitViewController {
             return existParent as? SplitViewController

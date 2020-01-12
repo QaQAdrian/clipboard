@@ -23,7 +23,6 @@
 		757894812394F63B00B26DDF /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757894802394F63B00B26DDF /* Clipboard.swift */; };
 		758CB487239F45F00067A970 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758CB486239F45F00067A970 /* StatusBar.swift */; };
 		759F9FAD239E104300357E2D /* NSViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F9FAC239E104300357E2D /* NSViewUtils.swift */; };
-		75ADF01B23CB137900B2F7AD /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ADF01A23CB137900B2F7AD /* Preview.swift */; };
 		75B45F77239F66080045F635 /* StatusBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75B45F79239F66080045F635 /* StatusBarMenu.xib */; };
 		75D9D1C723C88BCC00032AEC /* Notice.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D9D1C623C88BCC00032AEC /* Notice.xib */; };
 		75D9D1C923C88FEA00032AEC /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9D1C823C88FEA00032AEC /* Notice.swift */; };
@@ -72,7 +71,6 @@
 		757894882397514200B26DDF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		758CB486239F45F00067A970 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		759F9FAC239E104300357E2D /* NSViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewUtils.swift; sourceTree = "<group>"; };
-		75ADF01A23CB137900B2F7AD /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		75B45F78239F66080045F635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatusBarMenu.xib; sourceTree = "<group>"; };
 		75B45F7B239F660D0045F635 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StatusBarMenu.strings; sourceTree = "<group>"; };
 		75B45F7D239F66160045F635 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/StatusBarMenu.strings"; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				756E2F98239E406100534C9A /* MainListView.swift */,
 				75FC5628239E5E8200635EE5 /* SplitViewController.swift */,
 				75FC562B239E7E9600635EE5 /* PreviewController.swift */,
-				75ADF01A23CB137900B2F7AD /* Preview.swift */,
 			);
 			path = splitview;
 			sourceTree = "<group>";
@@ -314,7 +311,6 @@
 				757894812394F63B00B26DDF /* Clipboard.swift in Sources */,
 				75D9D1C923C88FEA00032AEC /* Notice.swift in Sources */,
 				757894502394EF3C00B26DDF /* AppDelegate.swift in Sources */,
-				75ADF01B23CB137900B2F7AD /* Preview.swift in Sources */,
 				757450F0239D30E6003EF2E0 /* ListTextItem.swift in Sources */,
 				1CDD7CA7EE876D53DC053C86 /* ClipboardOSX.swift in Sources */,
 				756E2F99239E406100534C9A /* MainListView.swift in Sources */,

@@ -26,10 +26,10 @@ class ListTextItem: NSView {
     @IBOutlet var previewBtn: NSButton!
 
     var itemId: String?
+    var storyboard: NSStoryboard?
     var tableView: NSTableView?
     var item: ClipboardOSX?
     var click: ((ClipboardOSX?, ListTextItem) -> Void)?
-    var preview: ((ClipboardOSX?) -> Void)?
     var closePreview: (() -> Void)?
 
     required init?(coder: NSCoder) {
@@ -46,24 +46,15 @@ class ListTextItem: NSView {
     override func resetCursorRects() {
         self.addCursorRect(self.bounds, cursor: NSCursor.pointingHand)
     }
-
-    private var previewIcon = false {
-        didSet {
-            if previewIcon {
-                if let hook = preview {
-                    hook(item)
-                }
-            } else {
-                if let hook = closePreview {
-                    hook()
-                }
-            }
-        }
-    }
     // MARK: event
-
     @IBAction func preview(_ sender: NSButton) {
-        previewIcon = !previewIcon
+        if let controller = getPreviewController() {
+            controller.item = item
+            let popover = NSPopover()
+            popover.contentViewController = controller
+            popover.behavior = .transient
+            popover.show(relativeTo: self.visibleRect, of: self, preferredEdge: .maxY)
+        }
     }
 
     override func mouseDown(with event: NSEvent) {
@@ -74,6 +65,13 @@ class ListTextItem: NSView {
             hook(item, self)
         }
     }
+    
+    private func getPreviewController() -> PreviewController? {
+        let controller = storyboard?.instantiateController(withIdentifier: "PreviewController") as? PreviewController
+        print(controller?.view == nil)
+        return controller
+    }
+
     
     // MARK: setter
 
