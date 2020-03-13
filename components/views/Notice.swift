@@ -19,7 +19,7 @@ class Notice: NSView, CAAnimationDelegate {
     }
     
     func start() {
-        if OSXUtils.isDarkMod() {
+        if OSXUtils.isDarkMode() {
             self.layer?.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         } else {
             self.layer?.backgroundColor = #colorLiteral(red: 0.9547311664, green: 0.9490554929, blue: 0.9590938687, alpha: 1)

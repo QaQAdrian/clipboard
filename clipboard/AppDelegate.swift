@@ -13,12 +13,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let clipboard = ClipboardListener.shared
     var iStatucBar: StatusBar?
 
-    @IBOutlet weak var menu: Menu!
-    
+    @IBOutlet var menu: Menu!
+
+    var item: NSStatusItem?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         clipboard.startListening()
-        iStatucBar = StatusBar(menu)
+//        iStatucBar = StatusBar(menu)
+//        let flag = OSXUtils.isDarkMode()
+        if let image = NSImage(named: "clipboard") {
+            item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+            image.size = NSMakeSize(18.0, 18.0)
+            item?.image = image
+            item?.highlightMode = true
+            item?.image?.isTemplate = true
+            item?.button?.target = self
+            item?.button?.action = #selector(buttonAction(sender:))
+//            item?.button?.performClick(#selector(buttonAction))
+        }
         NSApp.setActivationPolicy(.regular)
+    }
+
+    @objc func buttonAction(sender: Any!) {
+        AppDelegate.openMainWindow()
     }
 
     static func openMainWindow() {
@@ -31,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
-    
+
     static func quit() {
         NSApplication.shared.terminate(nil)
     }
@@ -44,19 +60,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ notification: Notification) {
         AppDelegate.clearCache()
     }
-    
+
     static func clearCache() {
         let cachPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
         let files = FileManager.default.subpaths(atPath: cachPath as String)
         for p in files! {
-          let path = cachPath.appendingPathComponent(p)
-          if FileManager.default.fileExists(atPath: path) {
-              do {
-                  try FileManager.default.removeItem(atPath: path)
-              } catch {
-                  print("error:\(error)")
-              }
-          }
+            let path = cachPath.appendingPathComponent(p)
+            if FileManager.default.fileExists(atPath: path) {
+                do {
+                    try FileManager.default.removeItem(atPath: path)
+                } catch {
+                    print("error:\(error)")
+                }
+            }
         }
     }
 }

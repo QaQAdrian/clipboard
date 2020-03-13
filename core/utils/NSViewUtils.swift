@@ -71,7 +71,7 @@ extension NSImage {
 // }
 
 class OSXUtils {
-    static func isDarkMod() -> Bool {
+    static func isDarkMode() -> Bool {
         if #available(OSX 10.14, *) {
             let apperance = NSApp.effectiveAppearance
             let res = apperance.bestMatch(from:[NSAppearance.Name.darkAqua, NSAppearance.Name.aqua])
